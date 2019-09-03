@@ -3,113 +3,131 @@
 <title>IORnD.PEVB</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 <body>
 
-<div class="w3-container">  
-
-  <div class="w3-bar w3-light-grey">
-    <a href="#" class="w3-bar-item w3-button" onclick="openTab('Home')">IORnD.PEVB</a>
-    <a href="#" class="w3-bar-item w3-button" onclick="openTab('About')">About</a>
-    <div class="w3-dropdown-hover">
-      <button class="w3-button">File</button>
-      <div class="w3-dropdown-content w3-bar-block w3-card-4">
-        <a href="#" onclick="openTab('NewCircuit')" class="w3-bar-item w3-button">New Circuit</a>
-        <a href="#" onclick="openTab('NewIC')" class="w3-bar-item w3-button">New IC</a>        
-		<a href="#" class="w3-bar-item w3-button">------</a>
-		<a href="#" onclick="document.getElementById('OpenDir').style.display='block'" class="w3-bar-item w3-button">Load Circuit</a>
-        <a href="#" onclick="openTab('LoadIC')" class="w3-bar-item w3-button">Load IC</a>        
-      </div> 
-    </div>
-	<a href="#" class="w3-bar-item w3-button" onclick="openTab('CaseStudy')">Case Study</a>
-	<a href="#" class="w3-bar-item w3-button" onclick="openTab('DevLog')">DevLog</a>
-  </div>
-  <div id="Home" class="w3-container tab">
-  <h2>PEVB (<b>P</b>rogrammable <b>EV</b>aluation <b>B</b>oard)</h2>
-  <p></p>
-</div>
-
-<!-- The Modal -->
-<div id="OpenDir" class="w3-modal">
-  <div class="w3-modal-content">
     <div class="w3-container">
-      <span onclick="document.getElementById('OpenDir').style.display='none'" 
-      class="w3-button w3-display-topright">&times;</span>
-      <p>Some text in the Modal..</p>
-      <p>Some text in the Modal..</p>
+
+        <div class="w3-bar w3-light-grey">
+            <a href="#" class="w3-bar-item w3-button" onclick="openTab('Home')">IORnD.PEVB</a>
+            <a href="#" class="w3-bar-item w3-button" onclick="openTab('About')">About</a>
+            <div class="w3-dropdown-hover">
+                <button class="w3-button">File</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="#" onclick="openTab('NewCircuit')" class="w3-bar-item w3-button">New Circuit</a>
+                    <a href="#" onclick="openTab('NewIC')" class="w3-bar-item w3-button">New IC</a>
+                    <a href="#" class="w3-bar-item w3-button">------</a>
+                    <a href="#" onclick="document.getElementById('OpenDir').style.display='block'" class="w3-bar-item w3-button">Load Circuit</a>
+                    <a href="#" onclick="openTab('LoadIC')" class="w3-bar-item w3-button">Load IC</a>
+                </div>
+            </div>
+            <a href="#" class="w3-bar-item w3-button" onclick="openTab('CaseStudy')">Case Study</a>
+            <a href="#" class="w3-bar-item w3-button" onclick="openTab('DevLog')">DevLog</a>
+        </div>
+        <div id="Home" class="w3-container tab" style="display:none">
+            <h2>PEVB (<b>P</b>rogrammable <b>EV</b>aluation <b>B</b>oard)</h2>
+            <p></p>
+        </div>
+
+        <!-- The Modal -->
+        <div id="OpenDir" class="w3-modal">
+            <div class="w3-modal-content">
+                <div class="w3-container">
+                    <span onclick="document.getElementById('OpenDir').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                    <p>Some text in the Modal..</p>
+                    <p>Some text in the Modal..</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="About" class="w3-container tab" style="display:none">
+            <h2>Paris</h2>
+            <p>Paris is the capital of France.</p>
+        </div>
+
+        <div id="CaseStudy" class="w3-container tab" style="display:none">
+            <h2>Case Study</h2>
+            <p></p>
+        </div>
+
+        <div id="DevLog" class="w3-container tab" style="display:none">
+            <h2>todo</h2>
+            <input class="w3-check" type="checkbox" checked="checked">
+            <label>Sugar</label>
+
+            <h2>daily log</h2>
+            <div class="w3-card" style="width:50%">
+                <div class="w3-container">
+                    <h3>20190903</h3>
+                    <p>intializae this website</p>
+                </div>
+
+            </div>
+        </div>
+
     </div>
-  </div>
-</div>
 
-<div id="About" class="w3-container tab" style="display:none">
-  <h2>Paris</h2>
-  <p>Paris is the capital of France.</p> 
-</div>
+    <div id="NewCircuit" class="w3-container tab" style="display:none">
+        <h2>New Circuit</h2>
+        <p>Tokyo is the capital of Japan.</p>
+    </div>
 
-<div id="CaseStudy" class="w3-container tab" style="display:none">
-  <h2>Case Study</h2>
-  <p></p>
-</div>
+    <div id="NewIC" class="w3-container tab" style="display:none">
+        <h2>New IC</h2>
+        <p>Tokyo is the capital of Japan.</p>
+    </div>
 
+    <div id="LoadCircuit" class="w3-container tab">
+        <h2>Load Circuit</h2>
+        <p></p>
+        <div class="w3-row">
 
-<div id="DevLog" class="w3-container tab" style="display:none">
-  <h2>todo</h2>
-	<input class="w3-check" type="checkbox" checked="checked">
-	<label>Sugar</label>
+            <div class="w3-col w3-yellow m4 l4">	
+				<div width="100%">
+					<svg viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+					 <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+					 <g>
+					  <title>Layer 1</title>
+					  <rect stroke="#000000" fill="#ffffff" stroke-width="3" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x="104.59998" y="46.6" width="170" height="125" id="svg_9"/>
+					  <line stroke="#000000" id="svg_1" y2="67" x2="322" y1="66" x1="275" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="3" fill="none"/>
+					  <line id="svg_2" stroke="#000000" y2="93.5" x2="320.5" y1="92.5" x1="273.5" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="3" fill="none"/>
+					  <line id="svg_3" stroke="#000000" y2="124" x2="320.5" y1="123" x1="273.5" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="3" fill="none"/>
+					  <line id="svg_4" stroke="#000000" y2="154" x2="321.5" y1="153" x1="274.5" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="3" fill="none"/>
+					  <line id="svg_5" stroke="#000000" y2="63.5" x2="103.25" y1="62.5" x1="56.25" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="3" fill="none"/>
+					  <line id="svg_6" stroke="#000000" y2="90" x2="101.75" y1="89" x1="54.75" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="3" fill="none"/>
+					  <line id="svg_7" stroke="#000000" y2="120.5" x2="101.75" y1="119.5" x1="54.75" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="3" fill="none"/>
+					  <line id="svg_8" stroke="#000000" y2="150.5" x2="102.75" y1="149.5" x1="55.75" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="3" fill="none"/>
+					 </g>
+					</svg>
+				</div>
 
-  <h2>daily log</h2>
-  <div class="w3-card" style="width:50%">
-  <div class="w3-container">
-	<h3>20190903</h3>
-	<p>intializae this website</p>
-   </div>
-	
-  </div>
-</div>
-  
-</div>
+            </div>
 
-<div id="NewCircuit" class="w3-container tab" style="display:none">
-  <h2>New Circuit</h2>
-  <p>Tokyo is the capital of Japan.</p>
+            <div class="w3-grey w3-col m4 l4">
+                <p>Hello W3.CSS Layout.</p>
+            </div>
 
-</div>
-
-<div id="NewIC" class="w3-container tab" style="display:none">
-  <h2>New IC</h2>
-  <p>Tokyo is the capital of Japan.</p>
-</div>
-
-<div id="LoadCircuit" class="w3-container tab" style="display:none">
-  <h2>Load Circuit</h2>
-  <p></p>
-  <div class="w3-cell-row">
-
-		<div class="w3-container w3-cell">
-		  <p>Hello W3.CSS Layout.</p>
-		  <p>Hello W3.CSS Layout.</p>
-		  <p>Hello W3.CSS Layout.</p>
-		  <p>Hello W3.CSS Layout.</p>
+			<div class="w3-red w3-col m4 l4">
+                <p>Hello W3.CSS Layout.</p>
+            </div>
+        </div>
+		<div class="w3-cell-row">
+			<p>test</p>
 		</div>
+    </div>
 
-		<div class="w3-container w3-grey w3-cell w3-cell-middle">
-		  <p>Hello W3.CSS Layout.</p>
-		</div>
-
-
-	</div>
-</div>
-
-<script>
-function openTab(TabName) {
-  var i;
-  var x = document.getElementsByClassName("tab");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
-  }
-  document.getElementById(TabName).style.display = "block";  
-}
-</script>
-</div>
+    <script>
+        function openTab(TabName) {
+            var i;
+            var x = document.getElementsByClassName("tab");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            document.getElementById(TabName).style.display = "block";
+        }
+    </script>
+    </div>
 
 </body>
+
 </html>
