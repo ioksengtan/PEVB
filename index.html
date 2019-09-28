@@ -91,12 +91,11 @@
     </div>
 
     <div id="Home" class="w3-container tab">
-        <h2>Load Circuit</h2>
-        <p></p>
+
 
         <div class="w3-row">
 
-            <div class="w3-col w3-red m5 l5">
+            <div class="w3-col m6 l6">
                 <div class="w3-bar w3-light-grey">
                     <a href="#" class="w3-bar-item w3-button" onclick="openCircuitView('Schematic')">Schematic</a>
                     <a href="#" class="w3-bar-item w3-button" onclick="openCircuitView('Layout')">Layout</a>
@@ -573,6 +572,7 @@
                         </g>
                     </svg>
                 </div>
+				
                 <div class="view" id="Layout" width="100%" style="display:none">
                     <svg viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
                         <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
@@ -581,23 +581,30 @@
                     </svg>
                 </div>
 
+<div class=" w3-col ">
+                <h1>Circuit Schematic</h1>
+				<div>
+					<img src="https://lh5.googleusercontent.com/-dBHEUF4iHtQ/TW6b19-7N5I/AAAAAAAAACs/9NZHyRCTy6Y/s320/low-pass-filter-circuit-10khz-using-ua741.jpg" style="width:80%" class="w3-image"/>				
+				</div>
+            </div>
             </div>
 
-            <div class="w3-grey w3-col m5 l5">
+            <div class="w3-grey w3-col m6 l6">
 				<div class="w3-bar w3-light-grey">
-					<a id="ic_name" href="#" class="w3-bar-item w3-button">[IC name]</a>
+					<a id="ic_name" href="#" class="w3-bar-item w3-button">OP741</a>
                     <a href="#" class="w3-bar-item w3-button" onclick="openICView('PinLocation')">Pin Location</a>
                     <a href="#" class="w3-bar-item w3-button" onclick="openICView('PinDefinition')">Pin Definition</a>
+					<a href="#" class="w3-bar-item w3-button" onclick="openICView('ICDescription')">IC Description</a>
 				</div>
 				<div class="ICView" id="PinLocation"  style="display:none">
-                    <svg viewBox="0 0 640 240" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
-                        <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
-                        <g>                            
-                        </g>
-                    </svg>
+<img src="https://www.st-andrews.ac.uk/~www_pa/Scots_Guide/datasheets/Opamps/741dia.gif"  style="width:100%" class="w3-image"/>
+				</div>
+				<div class="ICView" id="ICDescription" style="display:none">
+				<p>The 741 is the godfather of all operational amplifiers (amplifiers on a chip). Although most up-to-date designs beat it for speed, low noise, etc, it still works well as a general purpose device. One of its advantages is that it is compensated (its frequency response is tailored) to ensure that under most curcumstances it won't produce unwanted spurious oscillations. This means it is easy to use, but the down-side of this is the poor speed/gain performance compared to more modern op-amps.
+				</p>
 				</div>
 				<div class="ICView" id="PinDefinition">
-					<table class="w3-table">
+					<table class="w3-table-all">
 					<tr>
 					  <th>Pin</th>
 					  <th>Pin name</th>
@@ -654,20 +661,21 @@
 					</tr>
 					</table>
 				</div>
+				       <div class="w3-grey w3-col">
+                <h1>Circuit Description</h1>
+				
+				<p>Active Inverting Op Amp Low Pass Filter Circuit
+The inverting low pass filter circuit that we will build with an LM741 op amp chip and a few resistors and a capacitor is shown below.
+
+This low pass filter below is an inverting low pass filter.
+
+This means that the output of the op amp is 180 degrees of out of phase with the input signal. This correlates, from an image angle, vertically flipping the input signal and this what would appear as output.</p>				
+				
+            </div>     
             </div>
 
-            <div class="w3-khaki w3-col m5 l5">
-                <p>Circuit Schematic</p>
-				<div>
-					<img src="http://www.learningaboutelectronics.com/images/555-timer-monostable-circuit.png" style="width:100%" class="w3-image"/>				
-				</div>
-            </div>
-			<div class="w3-khaki w3-col m5 l5">
-                <p>Circuit Description</p>
-				
-				<p>this is the description of this circuit</p>				
-				
-            </div>
+							
+
         </div>
 
     </div>
