@@ -24,8 +24,8 @@
                     <a href="#" onclick="openTab('NewCircuit')" class="w3-bar-item w3-button">New Circuit</a>
                     <a href="#" onclick="openTab('NewIC')" class="w3-bar-item w3-button">New IC</a>
                     <a href="#" class="w3-bar-item w3-button">------</a>
-                    <a href="#" onclick="document.getElementById('OpenDir').style.display='block'" class="w3-bar-item w3-button">Load Circuit</a>
-                    <a href="#" onclick="openTab('LoadIC')" class="w3-bar-item w3-button">Load IC</a>
+                    <a href="#" onclick="document.getElementById('OpenDir').style.display='block'" class="w3-bar-item w3-button">Browse Circuit</a>
+                    <a href="#" onclick="openTab('LoadIC')" class="w3-bar-item w3-button">Browse IC</a>
                 </div>
             </div>
             <a href="#" class="w3-bar-item w3-button" onclick="openTab('CircuitBlog')">Circuit Blog</a>
@@ -631,6 +631,14 @@
   <text xml:space="preserve" text-anchor="middle" font-family="serif" font-size="12" id="Tx3b" y="369" x="410" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" stroke="#000000" fill="#000000">X</text>
   <text xml:space="preserve" text-anchor="middle" font-family="serif" font-size="12" id="Ty3b" y="369" x="490" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" stroke="#000000" fill="#000000">Y</text>
   <text xml:space="preserve" text-anchor="middle" font-family="serif" font-size="12" id="Tz1b" y="369" x="570" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" stroke="#000000" fill="#000000">z</text>
+  <rect fill="#FF0000" stroke="#000000" stroke-width="0" x="28.98823" y="164.62502" width="10" height="29.8125" id="LW_P1t_Zp1t2n1t"/>
+  <rect fill="#FF0000" stroke="#000000" stroke-width="0" x="108.98823" y="164.62502" width="10" height="29.8125" id="LW_P2t_Zp2t2n2t"/>
+  <rect fill="#FF0000" stroke="#000000" stroke-width="0" x="188.98823" y="164.62502" width="10" height="29.8125" id="LW_P3t_Zp3t2n3t"/>
+  <rect fill="#FF0000" stroke="#000000" stroke-width="0" x="268.98823" y="164.62502" width="10" height="29.8125" id="LW_P4t_Zp4t2n4t"/>
+  <rect fill="#FF0000" stroke="#000000" stroke-width="0" x="348.98823" y="164.62502" width="10" height="29.8125" id="LW_P5t_Zp5t2n5t"/>
+  <rect fill="#FF0000" stroke="#000000" stroke-width="0" x="428.98823" y="164.62502" width="10" height="29.8125" id="LW_P6t_Zp6t2n6t"/>
+  <rect fill="#FF0000" stroke="#000000" stroke-width="0" x="508.98823" y="164.62502" width="10" height="29.8125" id="LW_P7t_Zp7t2n7t"/>
+  <rect fill="#FF0000" stroke="#000000" stroke-width="0" x="588.98823" y="164.62502" width="10" height="29.8125" id="LW_P8t_Zp8t2n8t"/>
  </g>
 </svg>
                 </div>
@@ -759,12 +767,18 @@ This means that the output of the op amp is 180 degrees of out of phase with the
         });
 
         function openCircuitView(ViewName) {
-            var i;
-            var x = document.getElementsByClassName("view");
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            document.getElementById(ViewName).style.display = "block";
+            //var i;
+            //var x = document.getElementsByClassName("view");
+            //for (i = 0; i < x.length; i++) {
+            //    x[i].style.display = "none";
+            //}
+            //document.getElementById(ViewName).style.display = "block";
+			if (ViewName == 'Schematic'){
+				turn_off_layout_view();
+			}else if (ViewName == 'Layout'){
+				turn_on_layout_view();
+			}
+			
         }        
         function openICView(ViewName) {
             var i;
