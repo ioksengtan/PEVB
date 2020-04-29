@@ -1,0 +1,6 @@
+rm tmp3.svg
+python gen_svg.py > tmp3.svg
+cat part1 > test.html
+cat tmp3.svg >> test.html
+cat part2 >> test.html
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --kiosk test.html

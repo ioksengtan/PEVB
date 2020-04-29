@@ -1,0 +1,145 @@
+                </div>
+
+<div class=" w3-col ">
+                <h1>Circuit Schematic</h1>
+				<div>
+					<img src="https://lh5.googleusercontent.com/-dBHEUF4iHtQ/TW6b19-7N5I/AAAAAAAAACs/9NZHyRCTy6Y/s320/low-pass-filter-circuit-10khz-using-ua741.jpg" style="width:80%" class="w3-image"/>				
+				</div>
+            </div>
+            </div>
+
+            <div class="w3-grey w3-col m6 l6">
+				<div class="w3-bar w3-light-grey">
+					<a id="ic_name" href="#" class="w3-bar-item w3-button">OP741</a>
+                    <a href="#" class="w3-bar-item w3-button" onclick="openICView('PinLocation')">Pin Location</a>
+                    <a href="#" class="w3-bar-item w3-button" onclick="openICView('PinDefinition')">Pin Definition</a>
+					<a href="#" class="w3-bar-item w3-button" onclick="openICView('ICDescription')">IC Description</a>
+				</div>
+				<div class="ICView" id="PinLocation"  style="display:none">
+<img src="https://www.st-andrews.ac.uk/~www_pa/Scots_Guide/datasheets/Opamps/741dia.gif"  style="width:100%" class="w3-image"/>
+				</div>
+				<div class="ICView" id="ICDescription" style="display:none">
+				<h1>IC Description</h1>
+				<p>The 741 is the godfather of all operational amplifiers (amplifiers on a chip). Although most up-to-date designs beat it for speed, low noise, etc, it still works well as a general purpose device. One of its advantages is that it is compensated (its frequency response is tailored) to ensure that under most curcumstances it won't produce unwanted spurious oscillations. This means it is easy to use, but the down-side of this is the poor speed/gain performance compared to more modern op-amps.
+				</p>
+				</div>
+				<div class="ICView" id="PinDefinition">
+					<table class="w3-table-all">
+					<tr>
+					  <th>Pin</th>
+					  <th>Pin name</th>
+					  <th>I/O</th>
+					  <th>Description</th>
+					</tr>
+					<tr>
+					  <td>1</td>
+					  <td>VDD</td>
+					  <td>input</td>
+					  <td>VDD netVDD netVDD netVDD netVDD netVDD netVDD netVDD netVDD netVDD net</td>
+					</tr>
+					<tr>
+					  <td>2</td>
+					  <td>VDD</td>
+					  <td>input</td>
+					  <td>VDD net</td>
+					</tr>
+					<tr>
+					  <td>3</td>
+					  <td>VDD</td>
+					  <td>input</td>
+					  <td>VDD net</td>
+					</tr>
+					<tr>
+					  <td>4</td>
+					  <td>VDD</td>
+					  <td>input</td>
+					  <td>VDD net</td>
+					</tr>
+					<tr>
+					  <td>5</td>
+					  <td>VDD</td>
+					  <td>input</td>
+					  <td>VDD net</td>
+					</tr>
+					<tr>
+					  <td>6</td>
+					  <td>VDD</td>
+					  <td>input</td>
+					  <td>VDD net</td>
+					</tr>
+					<tr>
+					  <td>7</td>
+					  <td>VDD</td>
+					  <td>input</td>
+					  <td>VDD net</td>
+					</tr>
+					<tr>
+					  <td>8</td>
+					  <td>VDD</td>
+					  <td>input</td>
+					  <td>VDD net</td>
+					</tr>
+					</table>
+				</div>
+				       <div class="w3-grey w3-col">
+                <h1>Circuit Description</h1>
+				
+				<p>Active Inverting Op Amp Low Pass Filter Circuit
+The inverting low pass filter circuit that we will build with an LM741 op amp chip and a few resistors and a capacitor is shown below.
+
+This low pass filter below is an inverting low pass filter.
+
+This means that the output of the op amp is 180 degrees of out of phase with the input signal. This correlates, from an image angle, vertically flipping the input signal and this what would appear as output.</p>				
+				
+            </div>     
+            </div>
+
+							
+
+        </div>
+
+    </div>
+
+    <script>
+        function openTab(TabName) {
+            var i;
+            var x = document.getElementsByClassName("tab");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            document.getElementById(TabName).style.display = "block";
+        }
+        $('#Zp1t2p2t').click(function() {
+            $('#Zp1t2p2t').css({
+                fill: "#ff00ff"
+            });
+        });
+
+        function openCircuitView(ViewName) {
+            //var i;
+            //var x = document.getElementsByClassName("view");
+            //for (i = 0; i < x.length; i++) {
+            //    x[i].style.display = "none";
+            //}
+            //document.getElementById(ViewName).style.display = "block";
+			if (ViewName == 'Schematic'){
+				turn_off_layout_view();
+			}else if (ViewName == 'Layout'){
+				turn_on_layout_view();
+			}
+			
+        }        
+        function openICView(ViewName) {
+            var i;
+            var x = document.getElementsByClassName("ICView");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            document.getElementById(ViewName).style.display = "block";
+        }
+    </script>
+    </div>
+
+</body>
+
+</html>

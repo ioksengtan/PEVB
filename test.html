@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>IORnD.PEVB</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script type=" text/javascript" src="js/jquery-3.4.1.min.js"></script>
+	<script type=" text/javascript" src="js/ManagerZ.js"></script>
+	<script type=" text/javascript" src="js/ManagerUI.js"></script>
+	<script type=" text/javascript" src="js/index.js"></script>
+</head>
+
+<body>
+
+    <div class="w3-container">
+
+        <div class="w3-bar w3-light-grey">
+            <a href="#" class="w3-bar-item w3-button" onclick="openTab('Home')">IORnD.PEVB</a>
+            <a href="#" class="w3-bar-item w3-button" onclick="openTab('About')">About</a>
+            <div class="w3-dropdown-hover">
+                <button class="w3-button">File</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="#" onclick="openTab('NewCircuit')" class="w3-bar-item w3-button">New Circuit</a>
+                    <a href="#" onclick="openTab('NewIC')" class="w3-bar-item w3-button">New IC</a>
+                    <a href="#" class="w3-bar-item w3-button">------</a>
+                    <a href="#" onclick="document.getElementById('OpenDir').style.display='block'" class="w3-bar-item w3-button">Browse Circuit</a>
+                    <a href="#" onclick="openTab('LoadIC')" class="w3-bar-item w3-button">Browse IC</a>
+                </div>
+            </div>
+            <a href="#" class="w3-bar-item w3-button" onclick="openTab('CircuitBlog')">Circuit Blog</a>
+            <a href="#" class="w3-bar-item w3-button" onclick="openTab('DevLog')">DevLog</a>
+        </div>
+
+        <!-- The Modal -->
+        <div id="OpenDir" class="w3-modal">
+            <div class="w3-modal-content">
+                <div class="w3-container">
+                    <span onclick="document.getElementById('OpenDir').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                    <p>Some text in the Modal..</p>
+                    <p>Some text in the Modal..</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="About" class="w3-container tab" style="display:none">
+            <h2>PEVB (<b>P</b>rogrammable <b>EV</b>aluation <b>B</b>oard)</h2>
+            <h2>Designer</h2>
+            <p>PEVB is designed by Yu-Sheng Chen, from IORnD, in 2019. </p>
+        </div>
+
+        <div id="CircuitBlog" class="w3-container tab" style="display:none">
+            <h2>Circuit Blog</h2>
+            <p></p>
+        </div>
+
+        <div id="DevLog" class="w3-container tab" style="display:none">
+            <h2>todo</h2>
+            <input class="w3-check" type="checkbox" checked="checked">
+            <label>Sugar</label>
+
+            <h2>daily log</h2>
+			<div class="w3-card" style="width:50%">
+                <div class="w3-container">
+                    <h3>20190930</h3>
+                    <p>
+					Circuit Layout View: 80% complete
+					Circuit Schematic View: 95 % complete
+					</p>
+                </div>
+
+            </div>	
+            <div class="w3-card" style="width:50%">
+                <div class="w3-container">
+                    <h3>20190929</h3>
+                    <p>
+					整理目前有幾個需要完成的大項目：
+					<ol>
+						<li>Circuit Layout view </li>
+						<li>使用者點擊後的程式架構</li>
+						<li>整理幾個常用的電路</li>
+						<li>與後端的溝通介面</li>
+					</ul>
+					</p>
+                </div>
+
+            </div>				
+            <div class="w3-card" style="width:50%">
+                <div class="w3-container">
+                    <h3>20190928</h3>
+                    <p>
+					<ol>
+						<li>完成Schematic 80% svg </li>
+						<li>規劃用程式來產生schematic svg</li>
+					</ul>
+					</p>
+                </div>
+
+            </div>			
+            <div class="w3-card" style="width:50%">
+                <div class="w3-container">
+                    <h3>20190903</h3>
+                    <p>intializae this website</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div id="NewCircuit" class="w3-container tab" style="display:none">
+        <h2>New Circuit</h2>
+        <p>Tokyo is the capital of Japan.</p>
+    </div>
+
+    <div id="NewIC" class="w3-container tab" style="display:none">
+        <h2>New IC</h2>
+        <p>Tokyo is the capital of Japan.</p>
+    </div>
+
+    <div id="Home" class="w3-container tab">
+
+
+        <div class="w3-row">
+
+            <div class="w3-col m6 l6">
+                <div class="w3-bar w3-light-grey">
+                    <a href="#" class="w3-bar-item w3-button" onclick="openCircuitView('Schematic')">Schematic</a>
+                    <a href="#" class="w3-bar-item w3-button" onclick="openCircuitView('Layout')">Layout</a>
+                </div>
+                <div id="Schematic" class="view" width="100%" >
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 640 480" >
+<!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+<g>
+<title>Layer 1</title>
+{'depth': 't', 'type': 'p'}
+<rect id="Zp1t2p2t" stroke="#000000" height="10" width="20" y="160" x="60" fill="#ffffff"/>
+{'depth': 't', 'type': 'n'}
+<rect id="Zn1t2n2t" stroke="#000000" height="10" width="20" y="240" x="60" fill="#ffffff"/>
+{'depth': 'b', 'type': 'n'}
+<rect id="Zn1b2n2b" stroke="#000000" height="10" width="20" y="320" x="60" fill="#ffffff"/>
+{'depth': 'b', 'type': 'p'}
+<rect id="Zp1b2p2b" stroke="#000000" height="10" width="20" y="400" x="60" fill="#ffffff"/>
+{'depth': 't', 'type': 'p'}
+<rect id="Zp2t2p3t" stroke="#000000" height="10" width="20" y="160" x="140" fill="#ffffff"/>
+{'depth': 't', 'type': 'n'}
+<rect id="Zn2t2n3t" stroke="#000000" height="10" width="20" y="240" x="140" fill="#ffffff"/>
+{'depth': 'b', 'type': 'n'}
+<rect id="Zn2b2n3b" stroke="#000000" height="10" width="20" y="320" x="140" fill="#ffffff"/>
+{'depth': 'b', 'type': 'p'}
+<rect id="Zp2b2p3b" stroke="#000000" height="10" width="20" y="400" x="140" fill="#ffffff"/>
+{'depth': 't', 'type': 'p'}
+<rect id="Zp3t2p4t" stroke="#000000" height="10" width="20" y="160" x="220" fill="#ffffff"/>
+{'depth': 't', 'type': 'n'}
+<rect id="Zn3t2n4t" stroke="#000000" height="10" width="20" y="240" x="220" fill="#ffffff"/>
+{'depth': 'b', 'type': 'n'}
+<rect id="Zn3b2n4b" stroke="#000000" height="10" width="20" y="320" x="220" fill="#ffffff"/>
+{'depth': 'b', 'type': 'p'}
+<rect id="Zp3b2p4b" stroke="#000000" height="10" width="20" y="400" x="220" fill="#ffffff"/>
+{'depth': 't', 'type': 'p'}
+<rect id="Zp4t2p5t" stroke="#000000" height="10" width="20" y="160" x="300" fill="#ffffff"/>
+{'depth': 't', 'type': 'n'}
+<rect id="Zn4t2n5t" stroke="#000000" height="10" width="20" y="240" x="300" fill="#ffffff"/>
+{'depth': 'b', 'type': 'n'}
+<rect id="Zn4b2n5b" stroke="#000000" height="10" width="20" y="320" x="300" fill="#ffffff"/>
+{'depth': 'b', 'type': 'p'}
+<rect id="Zp4b2p5b" stroke="#000000" height="10" width="20" y="400" x="300" fill="#ffffff"/>
+{'depth': 't', 'type': 'p'}
+<rect id="Zp5t2p6t" stroke="#000000" height="10" width="20" y="160" x="380" fill="#ffffff"/>
+{'depth': 't', 'type': 'n'}
+<rect id="Zn5t2n6t" stroke="#000000" height="10" width="20" y="240" x="380" fill="#ffffff"/>
+{'depth': 'b', 'type': 'n'}
+<rect id="Zn5b2n6b" stroke="#000000" height="10" width="20" y="320" x="380" fill="#ffffff"/>
+{'depth': 'b', 'type': 'p'}
+<rect id="Zp5b2p6b" stroke="#000000" height="10" width="20" y="400" x="380" fill="#ffffff"/>
+{'depth': 't', 'type': 'p'}
+<rect id="Zp6t2p7t" stroke="#000000" height="10" width="20" y="160" x="460" fill="#ffffff"/>
+{'depth': 't', 'type': 'n'}
+<rect id="Zn6t2n7t" stroke="#000000" height="10" width="20" y="240" x="460" fill="#ffffff"/>
+{'depth': 'b', 'type': 'n'}
+<rect id="Zn6b2n7b" stroke="#000000" height="10" width="20" y="320" x="460" fill="#ffffff"/>
+{'depth': 'b', 'type': 'p'}
+<rect id="Zp6b2p7b" stroke="#000000" height="10" width="20" y="400" x="460" fill="#ffffff"/>
+{'depth': 't', 'type': 'p'}
+<rect id="Zp7t2p8t" stroke="#000000" height="10" width="20" y="160" x="540" fill="#ffffff"/>
+{'depth': 't', 'type': 'n'}
+<rect id="Zn7t2n8t" stroke="#000000" height="10" width="20" y="240" x="540" fill="#ffffff"/>
+{'depth': 'b', 'type': 'n'}
+<rect id="Zn7b2n8b" stroke="#000000" height="10" width="20" y="320" x="540" fill="#ffffff"/>
+{'depth': 'b', 'type': 'p'}
+<rect id="Zp7b2p8b" stroke="#000000" height="10" width="20" y="400" x="540" fill="#ffffff"/>
+<rect id="Zp1t2n1t" stroke="#000000" height="20" width="10" y="195" x="25" fill="#ffffff"/>
+<rect id="Zn1t2n1b" stroke="#000000" height="20" width="10" y="275" x="25" fill="#ffffff"/>
+<rect id="Zn1b2p1b" stroke="#000000" height="20" width="10" y="355" x="25" fill="#ffffff"/>
+<circle cx="30" cy="165" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="30" cy="165" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="30" cy="245" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="30" cy="245" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="30" cy="325" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="30" cy="325" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="30" cy="405" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="30" cy="405" r="6" stroke="black" stroke-width="2" fill="white" />
+<rect id="Zp2t2n2t" stroke="#000000" height="20" width="10" y="195" x="105" fill="#ffffff"/>
+<rect id="Zn2t2n2b" stroke="#000000" height="20" width="10" y="275" x="105" fill="#ffffff"/>
+<rect id="Zn2b2p2b" stroke="#000000" height="20" width="10" y="355" x="105" fill="#ffffff"/>
+<circle cx="110" cy="165" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="110" cy="165" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="110" cy="245" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="110" cy="245" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="110" cy="325" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="110" cy="325" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="110" cy="405" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="110" cy="405" r="6" stroke="black" stroke-width="2" fill="white" />
+<rect id="Zp3t2n3t" stroke="#000000" height="20" width="10" y="195" x="185" fill="#ffffff"/>
+<rect id="Zn3t2n3b" stroke="#000000" height="20" width="10" y="275" x="185" fill="#ffffff"/>
+<rect id="Zn3b2p3b" stroke="#000000" height="20" width="10" y="355" x="185" fill="#ffffff"/>
+<circle cx="190" cy="165" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="190" cy="165" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="190" cy="245" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="190" cy="245" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="190" cy="325" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="190" cy="325" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="190" cy="405" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="190" cy="405" r="6" stroke="black" stroke-width="2" fill="white" />
+<rect id="Zp4t2n4t" stroke="#000000" height="20" width="10" y="195" x="265" fill="#ffffff"/>
+<rect id="Zn4t2n4b" stroke="#000000" height="20" width="10" y="275" x="265" fill="#ffffff"/>
+<rect id="Zn4b2p4b" stroke="#000000" height="20" width="10" y="355" x="265" fill="#ffffff"/>
+<circle cx="270" cy="165" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="270" cy="165" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="270" cy="245" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="270" cy="245" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="270" cy="325" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="270" cy="325" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="270" cy="405" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="270" cy="405" r="6" stroke="black" stroke-width="2" fill="white" />
+<rect id="Zp5t2n5t" stroke="#000000" height="20" width="10" y="195" x="345" fill="#ffffff"/>
+<rect id="Zn5t2n5b" stroke="#000000" height="20" width="10" y="275" x="345" fill="#ffffff"/>
+<rect id="Zn5b2p5b" stroke="#000000" height="20" width="10" y="355" x="345" fill="#ffffff"/>
+<circle cx="350" cy="165" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="350" cy="165" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="350" cy="245" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="350" cy="245" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="350" cy="325" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="350" cy="325" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="350" cy="405" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="350" cy="405" r="6" stroke="black" stroke-width="2" fill="white" />
+<rect id="Zp6t2n6t" stroke="#000000" height="20" width="10" y="195" x="425" fill="#ffffff"/>
+<rect id="Zn6t2n6b" stroke="#000000" height="20" width="10" y="275" x="425" fill="#ffffff"/>
+<rect id="Zn6b2p6b" stroke="#000000" height="20" width="10" y="355" x="425" fill="#ffffff"/>
+<circle cx="430" cy="165" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="430" cy="165" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="430" cy="245" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="430" cy="245" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="430" cy="325" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="430" cy="325" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="430" cy="405" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="430" cy="405" r="6" stroke="black" stroke-width="2" fill="white" />
+<rect id="Zp7t2n7t" stroke="#000000" height="20" width="10" y="195" x="505" fill="#ffffff"/>
+<rect id="Zn7t2n7b" stroke="#000000" height="20" width="10" y="275" x="505" fill="#ffffff"/>
+<rect id="Zn7b2p7b" stroke="#000000" height="20" width="10" y="355" x="505" fill="#ffffff"/>
+<circle cx="510" cy="165" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="510" cy="165" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="510" cy="245" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="510" cy="245" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="510" cy="325" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="510" cy="325" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="510" cy="405" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="510" cy="405" r="6" stroke="black" stroke-width="2" fill="white" />
+<rect id="Zp8t2n8t" stroke="#000000" height="20" width="10" y="195" x="585" fill="#ffffff"/>
+<rect id="Zn8t2n8b" stroke="#000000" height="20" width="10" y="275" x="585" fill="#ffffff"/>
+<rect id="Zn8b2p8b" stroke="#000000" height="20" width="10" y="355" x="585" fill="#ffffff"/>
+<circle cx="590" cy="165" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="590" cy="165" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="590" cy="245" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="590" cy="245" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="590" cy="325" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="590" cy="325" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="590" cy="405" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="590" cy="405" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="70" cy="205" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="70" cy="205" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="150" cy="205" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="150" cy="205" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="230" cy="205" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="230" cy="205" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="310" cy="205" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="310" cy="205" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="390" cy="205" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="390" cy="205" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="470" cy="205" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="470" cy="205" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="550" cy="205" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="550" cy="205" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="70" cy="285" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="70" cy="285" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="150" cy="285" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="150" cy="285" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="230" cy="285" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="230" cy="285" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="310" cy="285" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="310" cy="285" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="390" cy="285" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="390" cy="285" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="470" cy="285" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="470" cy="285" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="550" cy="285" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="550" cy="285" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="70" cy="365" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="70" cy="365" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="150" cy="365" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="150" cy="365" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="230" cy="365" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="230" cy="365" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="310" cy="365" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="310" cy="365" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="390" cy="365" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="390" cy="365" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="470" cy="365" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="470" cy="365" r="6" stroke="black" stroke-width="2" fill="white" />
+<circle cx="550" cy="365" r="10" stroke="black" stroke-width="2" fill="red" />
+<circle cx="550" cy="365" r="6" stroke="black" stroke-width="2" fill="white" />
+<rect fill="#ffffff" x="40" y="180" width="20" height="10" transform="rotate(45, 50 ,185) " id="Zp1t2x1t" stroke="#000000"/>
+<rect fill="#ffffff" x="120" y="260" width="20" height="10" transform="rotate(45, 130 ,265) " id="ZZ" stroke="#000000"/>
+</g>
+</svg>
+                </div>
+
+<div class=" w3-col ">
+                <h1>Circuit Schematic</h1>
+				<div>
+					<img src="https://lh5.googleusercontent.com/-dBHEUF4iHtQ/TW6b19-7N5I/AAAAAAAAACs/9NZHyRCTy6Y/s320/low-pass-filter-circuit-10khz-using-ua741.jpg" style="width:80%" class="w3-image"/>				
+				</div>
+            </div>
+            </div>
+
+            <div class="w3-grey w3-col m6 l6">
+				<div class="w3-bar w3-light-grey">
+					<a id="ic_name" href="#" class="w3-bar-item w3-button">OP741</a>
+                    <a href="#" class="w3-bar-item w3-button" onclick="openICView('PinLocation')">Pin Location</a>
+                    <a href="#" class="w3-bar-item w3-button" onclick="openICView('PinDefinition')">Pin Definition</a>
+					<a href="#" class="w3-bar-item w3-button" onclick="openICView('ICDescription')">IC Description</a>
+				</div>
+				<div class="ICView" id="PinLocation"  style="display:none">
+<img src="https://www.st-andrews.ac.uk/~www_pa/Scots_Guide/datasheets/Opamps/741dia.gif"  style="width:100%" class="w3-image"/>
+				</div>
+				<div class="ICView" id="ICDescription" style="display:none">
+				<h1>IC Description</h1>
+				<p>The 741 is the godfather of all operational amplifiers (amplifiers on a chip). Although most up-to-date designs beat it for speed, low noise, etc, it still works well as a general purpose device. One of its advantages is that it is compensated (its frequency response is tailored) to ensure that under most curcumstances it won't produce unwanted spurious oscillations. This means it is easy to use, but the down-side of this is the poor speed/gain performance compared to more modern op-amps.
+				</p>
+				</div>
+				<div class="ICView" id="PinDefinition">
+					<table class="w3-table-all">
+					<tr>
+					  <th>Pin</th>
+					  <th>Pin name</th>
+					  <th>I/O</th>
+					  <th>Description</th>
+					</tr>
+					<tr>
+					  <td>1</td>
+					  <td>VDD</td>
+					  <td>input</td>
+					  <td>VDD netVDD netVDD netVDD netVDD netVDD netVDD netVDD netVDD netVDD net</td>
+					</tr>
+					<tr>
+					  <td>2</td>
+					  <td>VDD</td>
+					  <td>input</td>
+					  <td>VDD net</td>
+					</tr>
+					<tr>
+					  <td>3</td>
+					  <td>VDD</td>
+					  <td>input</td>
+					  <td>VDD net</td>
+					</tr>
+					<tr>
+					  <td>4</td>
+					  <td>VDD</td>
+					  <td>input</td>
+					  <td>VDD net</td>
+					</tr>
+					<tr>
+					  <td>5</td>
+					  <td>VDD</td>
+					  <td>input</td>
+					  <td>VDD net</td>
+					</tr>
+					<tr>
+					  <td>6</td>
+					  <td>VDD</td>
+					  <td>input</td>
+					  <td>VDD net</td>
+					</tr>
+					<tr>
+					  <td>7</td>
+					  <td>VDD</td>
+					  <td>input</td>
+					  <td>VDD net</td>
+					</tr>
+					<tr>
+					  <td>8</td>
+					  <td>VDD</td>
+					  <td>input</td>
+					  <td>VDD net</td>
+					</tr>
+					</table>
+				</div>
+				       <div class="w3-grey w3-col">
+                <h1>Circuit Description</h1>
+				
+				<p>Active Inverting Op Amp Low Pass Filter Circuit
+The inverting low pass filter circuit that we will build with an LM741 op amp chip and a few resistors and a capacitor is shown below.
+
+This low pass filter below is an inverting low pass filter.
+
+This means that the output of the op amp is 180 degrees of out of phase with the input signal. This correlates, from an image angle, vertically flipping the input signal and this what would appear as output.</p>				
+				
+            </div>     
+            </div>
+
+							
+
+        </div>
+
+    </div>
+
+    <script>
+        function openTab(TabName) {
+            var i;
+            var x = document.getElementsByClassName("tab");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            document.getElementById(TabName).style.display = "block";
+        }
+        $('#Zp1t2p2t').click(function() {
+            $('#Zp1t2p2t').css({
+                fill: "#ff00ff"
+            });
+        });
+
+        function openCircuitView(ViewName) {
+            //var i;
+            //var x = document.getElementsByClassName("view");
+            //for (i = 0; i < x.length; i++) {
+            //    x[i].style.display = "none";
+            //}
+            //document.getElementById(ViewName).style.display = "block";
+			if (ViewName == 'Schematic'){
+				turn_off_layout_view();
+			}else if (ViewName == 'Layout'){
+				turn_on_layout_view();
+			}
+			
+        }        
+        function openICView(ViewName) {
+            var i;
+            var x = document.getElementsByClassName("ICView");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            document.getElementById(ViewName).style.display = "block";
+        }
+    </script>
+    </div>
+
+</body>
+
+</html>
