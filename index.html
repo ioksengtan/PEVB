@@ -1059,11 +1059,21 @@ This means that the output of the op amp is 180 degrees of out of phase with the
             }
             document.getElementById(TabName).style.display = "block";
         }
-        $('#Zp1t2p2t').click(function() {
-            $('#Zp1t2p2t').css({
-                fill: "#ff00ff"
-            });
-        });
+	tmp = ['#Zp1t2p2t']
+	for (i =0;i<tmp.length;i++){	
+		$(tmp[i]).click(
+			function(){
+				console.log(typeof(this));
+			}
+		);
+
+	}
+        //$('#Zp1t2p2t').click(function() {
+	//    console.log('test')
+        //    //$('#Zp1t2p2t').css({
+        //    //    fill: "#ffffff"
+        //    //});
+        //});
 
         function openCircuitView(ViewName) {
             //var i;
