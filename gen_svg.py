@@ -15,6 +15,10 @@ origin_y = 165
 wire_length = 20
 wire_width = 10
 pin_pitch = 80
+ic_pin_height = 10
+ic_pin_width = 14
+ic_height = 70
+ic_width = 40
 dict_layers = []
 # P for Pin, T for Top
 dict_layers.append({'type':'p', 'depth':'t'}) 
@@ -111,13 +115,153 @@ for layer_id in Sources:
 
 
 def print_content():
-
+	print_IC(
+		id = 'ic',
+		stroke_color = "#000000", 
+		height = ic_height, 
+		width = ic_width, 
+		x = origin_x + pin_pitch * 3.5 - ic_width/2,
+		y = origin_y/3, 
+		fill_color = "#ffffff"
+	)
 	print_connections()
 		
 	print_nodes()
 	print_impedences()
 
+
+IC_Pins = {
+	0: {
+		'id': 'ic_p1',
+		'x': origin_x + pin_pitch * 3.5 - ic_width/2 - ic_pin_width/2, 
+		'y': origin_y/3 + ic_height/5,
+	},
+	1: {
+		'id': 'ic_p2',
+		'x': origin_x + pin_pitch * 3.5 - ic_width/2  - ic_pin_width/2,  
+		'y': origin_y/3 + ic_height*2/5,
+	},
+	2: {
+		'id': 'ic_p3',
+		'x': origin_x + pin_pitch * 3.5 - ic_width/2 - ic_pin_width/2, 
+		'y': origin_y/3 + ic_height*3/5,
+	},
+	3: {
+		'id': 'ic_p4',
+		'x': origin_x + pin_pitch * 3.5 - ic_width/2 - ic_pin_width/2, 
+		'y': origin_y/3 + ic_height*4/5,
+	},
+	4: {
+		'id': 'ic_p5',
+		'x': origin_x + pin_pitch * 3.5  + ic_width/2 + ic_pin_width/2, 
+		'y': origin_y/3 + ic_height*4/5,
+	},
+	5: {
+		'id': 'ic_p6',
+		'x': origin_x + pin_pitch * 3.5  + ic_width/2 + ic_pin_width/2, 
+		'y': origin_y/3 + ic_height*3/5,
+	},
+	6: {
+		'id': 'ic_p7',
+		'x': origin_x + pin_pitch * 3.5  + ic_width/2 + ic_pin_width/2, 
+		'y': origin_y/3 + ic_height*2/5,
+	},
+	7: {
+		'id': 'ic_p8',
+		'x': origin_x + pin_pitch * 3.5  + ic_width/2 + ic_pin_width/2, 
+		'y': origin_y/3 + ic_height*1/5,
+	},
+}
+
 def print_connections():
+	tmp_x1 = IC_Pins[4]['x']
+	tmp_y1 = IC_Pins[4]['y']
+
+	tmp_x2 = Nodes[0][4]['loc_x']
+	tmp_diff_x = abs(tmp_x2 - tmp_x1)
+	tmp_y2 = tmp_y1 + tmp_diff_x
+	print_connection(
+		id = "test",
+		stroke_color = "#000000", 
+		x1 = tmp_x1,
+		y1 = tmp_y1,
+		y2 = tmp_y2,
+		x2 = tmp_x2, 
+	)
+	print_connection(
+		id = "test",
+		stroke_color = "#000000", 
+		x1 = Nodes[0][4]['loc_x'],
+		y1 = Nodes[0][4]['loc_y'],
+		y2 = tmp_y2,
+		x2 = tmp_x2, 
+	)
+	tmp_x1 = IC_Pins[3]['x']
+	tmp_y1 = IC_Pins[3]['y']
+
+	tmp_x2 = Nodes[0][3]['loc_x']
+	tmp_diff_x = abs(tmp_x2 - tmp_x1)
+	tmp_y2 = tmp_y1 + tmp_diff_x
+	print_connection(
+		id = "test",
+		stroke_color = "#000000", 
+		x1 = tmp_x1,
+		y1 = tmp_y1,
+		y2 = tmp_y2,
+		x2 = tmp_x2, 
+	)
+	print_connection(
+		id = "test",
+		stroke_color = "#000000", 
+		x1 = Nodes[0][3]['loc_x'],
+		y1 = Nodes[0][3]['loc_y'],
+		y2 = tmp_y2,
+		x2 = tmp_x2, 
+	)
+	for i in range(0,3):
+		tmp_x1 = Nodes[0][i]['loc_x']
+		tmp_y1 = Nodes[0][i]['loc_y']
+		tmp_y2 = IC_Pins[i]['y']
+		tmp_diff_y = abs(tmp_y2 - tmp_y1)
+		tmp_x2 = tmp_x1 + tmp_diff_y + ic_pin_height/2
+		print_connection(
+			id = "test",
+			stroke_color = "#000000", 
+			x1 = Nodes[0][i]['loc_x'],
+			y1 = Nodes[0][i]['loc_y'],
+			y2 = tmp_y2,
+			x2 = tmp_x2, 
+		)
+		print_connection(
+			id = "test",
+			stroke_color = "#000000", 
+			x1 = IC_Pins[i]['x'],
+			y1 = IC_Pins[i]['y'],
+			y2 = tmp_y2,
+			x2 = tmp_x2, 
+		)
+	for i in range(5,8):
+		tmp_x1 = Nodes[0][i]['loc_x']
+		tmp_y1 = Nodes[0][i]['loc_y']
+		tmp_y2 = IC_Pins[i]['y']
+		tmp_diff_y = abs(tmp_y2 - tmp_y1)
+		tmp_x2 = tmp_x1 - tmp_diff_y + ic_pin_height/2
+		print_connection(
+			id = "test",
+			stroke_color = "#000000", 
+			x1 = Nodes[0][i]['loc_x'],
+			y1 = Nodes[0][i]['loc_y'],
+			y2 = tmp_y2,
+			x2 = tmp_x2, 
+		)
+		print_connection(
+			id = "test",
+			stroke_color = "#000000", 
+			x1 = IC_Pins[i]['x'],
+			y1 = IC_Pins[i]['y'],
+			y2 = tmp_y2,
+			x2 = tmp_x2, 
+		)
 	for each_src_id in Sources[2]:
 		print_connection(
 			id = "W_" + Nodes[3][each_src_id]['id'] +"_Z" + Nodes[3][each_src_id]['id'] + "2"+ Nodes[3][each_src_id+1]['id'], 
@@ -237,6 +381,21 @@ def print_connections():
 				x2 = Sources[each_layer_src_id][each_src_id]['loc_x'] + pin_pitch/4,
 				y2 = Sources[each_layer_src_id][each_src_id]['loc_y'] + pin_pitch/4,
 			)
+
+def print_IC(id, stroke_color, height, width, x, y, fill_color):
+	print "<rect id=\"" + id + "\" stroke=\"" + stroke_color + "\" height=\""+ str(height) +"\" width=\"" + str(width) +  "\" y=\"" + str(y) + "\" x=\"" + str(x) + "\" fill=\"" + fill_color + "\"/>"
+	print "<rect id=\"" + "ic_p1" + "\" stroke=\"" + stroke_color + "\" height=\""+ str(ic_pin_height) +"\" width=\"" + str(ic_pin_width) +  "\" y=\"" + str(y+height/5 - ic_pin_height/2) + "\" x=\"" + str(x - ic_pin_width) + "\" fill=\"" + "#000000" + "\"/>"
+	print "<rect id=\"" + "ic_p2" + "\" stroke=\"" + stroke_color + "\" height=\""+ str(ic_pin_height) +"\" width=\"" + str(ic_pin_width) +  "\" y=\"" + str(y+height*2/5 - ic_pin_height/2) + "\" x=\"" + str(x - ic_pin_width) + "\" fill=\"" + "#000000" + "\"/>"
+	print "<rect id=\"" + "ic_p3" + "\" stroke=\"" + stroke_color + "\" height=\""+ str(ic_pin_height) +"\" width=\"" + str(ic_pin_width) +  "\" y=\"" + str(y+height*3/5 - ic_pin_height/2) + "\" x=\"" + str(x - ic_pin_width) + "\" fill=\"" + "#000000" + "\"/>"
+	print "<rect id=\"" + "ic_p4" + "\" stroke=\"" + stroke_color + "\" height=\""+ str(ic_pin_height) +"\" width=\"" + str(ic_pin_width) +  "\" y=\"" + str(y+height*4/5 - ic_pin_height/2) + "\" x=\"" + str(x - ic_pin_width) + "\" fill=\"" + "#000000" + "\"/>"
+	#
+	print "<rect id=\"" + "ic_p8" + "\" stroke=\"" + stroke_color + "\" height=\""+ str(ic_pin_height) +"\" width=\"" + str(ic_pin_width) +  "\" y=\"" + str(y+height/5 - ic_pin_height/2) + "\" x=\"" + str(x  + width) + "\" fill=\"" + "#000000" + "\"/>"
+	print "<rect id=\"" + "ic_p7" + "\" stroke=\"" + stroke_color + "\" height=\""+ str(ic_pin_height) +"\" width=\"" + str(ic_pin_width) +  "\" y=\"" + str(y+height*2/5 - ic_pin_height/2) + "\" x=\"" + str(x  + width) + "\" fill=\"" + "#000000" + "\"/>"
+	print "<rect id=\"" + "ic_p6" + "\" stroke=\"" + stroke_color + "\" height=\""+ str(ic_pin_height) +"\" width=\"" + str(ic_pin_width) +  "\" y=\"" + str(y+height*3/5 - ic_pin_height/2) + "\" x=\"" + str(x  + width) + "\" fill=\"" + "#000000" + "\"/>"
+	print "<rect id=\"" + "ic_p5" + "\" stroke=\"" + stroke_color + "\" height=\""+ str(ic_pin_height) +"\" width=\"" + str(ic_pin_width) +  "\" y=\"" + str(y+height*4/5 - ic_pin_height/2) + "\" x=\"" + str(x  + width) + "\" fill=\"" + "#000000" + "\"/>"
+	
+	
+	
 
 def print_connection(id, stroke_color, x1, y1, x2, y2):
 	print "<line id=\"" + id + "\" y2=\"" + str(y2) + "\" x2=\""+ str(x2) +"\" y1=\""+ str(y1) +"\" x1=\""+ str(x1) +"\" stroke-linecap=\"null\" stroke-linejoin=\"null\" stroke-dasharray=\"null\" stroke-width=\"null\" fill=\"none\" stroke=\""+stroke_color+"\"/>"
