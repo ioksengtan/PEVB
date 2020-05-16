@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>IORnD.PEVB</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/w3.css">
+    <script type=" text/javascript" src="js/jquery-3.4.1.min.js"></script>
+	<script type=" text/javascript" src="js/ManagerZ.js"></script>
+	<script type=" text/javascript" src="js/ManagerUI.js"></script>
+	<script type=" text/javascript" src="js/index.js"></script>
+</head>
+
+<body>
+
+    <div class="w3-container">
+
+        <div class="w3-bar w3-light-grey">
+            <a href="#" class="w3-bar-item w3-button" onclick="openTab('Home')">IORnD.PEVB</a>
+            <a href="#" class="w3-bar-item w3-button" onclick="openTab('About')">About</a>
+            <div class="w3-dropdown-hover">
+                <button class="w3-button">File</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="#" onclick="openTab('NewCircuit')" class="w3-bar-item w3-button">New Circuit</a>
+                    <a href="#" onclick="openTab('NewIC')" class="w3-bar-item w3-button">New IC</a>
+                    <a href="#" class="w3-bar-item w3-button">------</a>
+                    <a href="#" onclick="document.getElementById('OpenDir').style.display='block'" class="w3-bar-item w3-button">Browse Circuit</a>
+                    <a href="#" onclick="openTab('LoadIC')" class="w3-bar-item w3-button">Browse IC</a>
+                </div>
+            </div>
+            <a href="#" class="w3-bar-item w3-button" onclick="openTab('CircuitBlog')">Circuit Blog</a>
+            <a href="#" class="w3-bar-item w3-button" onclick="openTab('DevLog')">DevLog</a>
+        </div>
+
+        <!-- The Modal -->
+        <div id="OpenDir" class="w3-modal">
+            <div class="w3-modal-content">
+                <div class="w3-container">
+                    <span onclick="document.getElementById('OpenDir').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                    <p>Some text in the Modal..</p>
+                    <p>Some text in the Modal..</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="About" class="w3-container tab" style="display:none">
+            <h2>PEVB (<b>P</b>rogrammable <b>EV</b>aluation <b>B</b>oard)</h2>
+            <h2>Designer</h2>
+            <p>PEVB is designed by Yu-Sheng Chen, from IORnD, in 2019. </p>
+        </div>
+
+        <div id="CircuitBlog" class="w3-container tab" style="display:none">
+            <h2>Circuit Blog</h2>
+            <p></p>
+        </div>
+
+        <div id="DevLog" class="w3-container tab" style="display:none">
+            <h2>todo</h2>
+            <input class="w3-check" type="checkbox" checked="checked">
+            <label>Sugar</label>
+
+            <h2>daily log</h2>
+			<div class="w3-card" style="width:50%">
+                <div class="w3-container">
+                    <h3>20190930</h3>
+                    <p>
+					Circuit Layout View: 80% complete
+					Circuit Schematic View: 95 % complete
+					</p>
+                </div>
+
+            </div>
+            <div class="w3-card" style="width:50%">
+                <div class="w3-container">
+                    <h3>20190929</h3>
+                    <p>
+					整理目前有幾個需要完成的大項目：
+					<ol>
+						<li>Circuit Layout view </li>
+						<li>使用者點擊後的程式架構</li>
+						<li>整理幾個常用的電路</li>
+						<li>與後端的溝通介面</li>
+					</ul>
+					</p>
+                </div>
+
+            </div>
+            <div class="w3-card" style="width:50%">
+                <div class="w3-container">
+                    <h3>20190928</h3>
+                </div>
+
+            </div>
+            <div class="w3-card" style="width:50%">
+                <div class="w3-container">
+                    <h3>20190903</h3>
+                    <p>intializae this website</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div id="NewCircuit" class="w3-container tab" style="display:none">
+        <h2>New Circuit</h2>
+        <p>Tokyo is the capital of Japan.</p>
+    </div>
+
+    <div id="NewIC" class="w3-container tab" style="display:none">
+        <h2>New IC</h2>
+        <p>Tokyo is the capital of Japan.</p>
+    </div>
+
+    <div id="Home" class="w3-container tab">
+
+
+        <div class="w3-row">
+
+            <div class="w3-col m6 l6">
+                <div class="w3-bar w3-light-grey">
+                    <a href="#" class="w3-bar-item w3-button" onclick="openCircuitView('Schematic')">Schematic</a>
+                    <a href="#" class="w3-bar-item w3-button" onclick="openCircuitView('Layout')">Layout</a>
+                </div>
+                <div id="Schematic" class="view" width="100%" >
+                </div>
+
+<div class=" w3-col ">
+                <h1>Circuit Schematic</h1>
+				<div>
+					<img src="https://lh5.googleusercontent.com/-dBHEUF4iHtQ/TW6b19-7N5I/AAAAAAAAACs/9NZHyRCTy6Y/s320/low-pass-filter-circuit-10khz-using-ua741.jpg" style="width:80%" class="w3-image"/>
+				</div>
+            </div>
+            </div>
+
+            <div class="w3-grey w3-col m6 l6">
+				<div class="w3-bar w3-light-grey">
+					<a id="ic_name" href="#" class="w3-bar-item w3-button">OP741</a>
+                    <a href="#" class="w3-bar-item w3-button" onclick="openICView('PinLocation')">Pin Location</a>
+                    <a href="#" class="w3-bar-item w3-button" onclick="openICView('PinDefinition')">Pin Definition</a>
+					<a href="#" class="w3-bar-item w3-button" onclick="openICView('ICDescription')">IC Description</a>
+				</div>
+				<div class="ICView" id="PinLocation"  style="display:none">
+<img src="https://www.st-andrews.ac.uk/~www_pa/Scots_Guide/datasheets/Opamps/741dia.gif"  style="width:100%" class="w3-image"/>
+				</div>
+				<div class="ICView" id="ICDescription" style="display:none">
+				<h1>IC Description</h1>
+				<p>The 741 is the godfather of all operational amplifiers (amplifiers on a chip). Although most up-to-date designs beat it for speed, low noise, etc, it still works well as a general purpose device. One of its advantages is that it is compensated (its frequency response is tailored) to ensure that under most curcumstances it won't produce unwanted spurious oscillations. This means it is easy to use, but the down-side of this is the poor speed/gain performance compared to more modern op-amps.
+				</p>
+				</div>
+				<div class="ICView" id="PinDefinition">
+					<table class="w3-table-all">
+					<tr>
+					  <th>Pin</th>
+					  <th>Pin name</th>
+					  <th>I/O</th>
+					  <th>Description</th>
+					</tr>
+					<tr>
+					  <td>1</td>
+					  <td>VDD</td>
+					  <td>input</td>
+					  <td>VDD netVDD netVDD netVDD netVDD netVDD netVDD netVDD netVDD netVDD net</td>
+					</tr>
+					<tr>
+					  <td>2</td>
+					  <td>VDD</td>
+					  <td>input</td>
+					  <td>VDD net</td>
+					</tr>
+					<tr>
+					  <td>3</td>
+					  <td>VDD</td>
+					  <td>input</td>
+					  <td>VDD net</td>
+					</tr>
+					<tr>
+					  <td>4</td>
+					  <td>VDD</td>
+					  <td>input</td>
+					  <td>VDD net</td>
+					</tr>
+					<tr>
+					  <td>5</td>
+					  <td>VDD</td>
+					  <td>input</td>
+					  <td>VDD net</td>
+					</tr>
+					<tr>
+					  <td>6</td>
+					  <td>VDD</td>
+					  <td>input</td>
+					  <td>VDD net</td>
+					</tr>
+					<tr>
+					  <td>7</td>
+					  <td>VDD</td>
+					  <td>input</td>
+					  <td>VDD net</td>
+					</tr>
+					<tr>
+					  <td>8</td>
+					  <td>VDD</td>
+					  <td>input</td>
+					  <td>VDD net</td>
+					</tr>
+					</table>
+				</div>
+				       <div class="w3-grey w3-col">
+                <h1>Circuit Description</h1>
+
+				<p>Active Inverting Op Amp Low Pass Filter Circuit
+The inverting low pass filter circuit that we will build with an LM741 op amp chip and a few resistors and a capacitor is shown below.
+
+This low pass filter below is an inverting low pass filter.
+
+This means that the output of the op amp is 180 degrees of out of phase with the input signal. This correlates, from an image angle, vertically flipping the input signal and this what would appear as output.</p>
+
+            </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+    </div>
+
+</body>
+
+</html>

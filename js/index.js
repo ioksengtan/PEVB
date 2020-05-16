@@ -1,4 +1,123 @@
+impedences_id = [
+"#Zp1t_p2t" , "#Zn1t_n2t" , "#Zn1b_n2b" , "#Zp1b_p2b" , "#Zp2t_p3t" , "#Zn2t_n3t" , "#Zn2b_n3b" , "#Zp2b_p3b" , "#Zp3t_p4t" , "#Zn3t_n4t" , "#Zn3b_n4b" , "#Zp3b_p4b" , "#Zp4t_p5t" , "#Zn4t_n5t" , "#Zn4b_n5b" , "#Zp4b_p5b" , "#Zp5t_p6t" , "#Zn5t_n6t" , "#Zn5b_n6b" , "#Zp5b_p6b" , "#Zp6t_p7t" , "#Zn6t_n7t" , "#Zn6b_n7b" , "#Zp6b_p7b" , "#Zp7t_p8t" , "#Zn7t_n8t" , "#Zn7b_n8b" , "#Zp7b_p8b" , "#Zp1t_x1t" , "#Zp2t_x1t" , "#Zn1t_x1t" , "#Zn2t_x1t" , "#Zp2t_y1t" , "#Zp3t_y1t" , "#Zn2t_y1t" , "#Zn3t_y1t" , "#Zp3t_x2t" , "#Zp4t_x2t" , "#Zn3t_x2t" , "#Zn4t_x2t" , "#Zp4t_y2t" , "#Zp5t_y2t" , "#Zn4t_y2t" , "#Zn5t_y2t" , "#Zp5t_x3t" , "#Zp6t_x3t" , "#Zn5t_x3t" , "#Zn6t_x3t" , "#Zp6t_y3t" , "#Zp7t_y3t" , "#Zn6t_y3t" , "#Zn7t_y3t" , "#Zp7t_z1t" , "#Zp8t_z1t" , "#Zn7t_z1t" , "#Zn8t_z1t" , "#Zn1t_g1" , "#Zn2t_g1" , "#Zn1b_g1" , "#Zn2b_g1" , "#Zn2t_v1" , "#Zn3t_v1" , "#Zn2b_v1" , "#Zn3b_v1" , "#Zn3t_g2" , "#Zn4t_g2" , "#Zn3b_g2" , "#Zn4b_g2" , "#Zn4t_v2" , "#Zn5t_v2" , "#Zn4b_v2" , "#Zn5b_v2" , "#Zn5t_g3" , "#Zn6t_g3" , "#Zn5b_g3" , "#Zn6b_g3" , "#Zn6t_v3" , "#Zn7t_v3" , "#Zn6b_v3" , "#Zn7b_v3" , "#Zn7t_g4" , "#Zn8t_g4" , "#Zn7b_g4" , "#Zn8b_g4" , "#Zn1b_x1b" , "#Zn2b_x1b" , "#Zp1b_x1b" , "#Zp2b_x1b" , "#Zn2b_y1b" , "#Zn3b_y1b" , "#Zp2b_y1b" , "#Zp3b_y1b" , "#Zn3b_x2b" , "#Zn4b_x2b" , "#Zp3b_x2b" , "#Zp4b_x2b" , "#Zn4b_y2b" , "#Zn5b_y2b" , "#Zp4b_y2b" , "#Zp5b_y2b" , "#Zn5b_x3b" , "#Zn6b_x3b" , "#Zp5b_x3b" , "#Zp6b_x3b" , "#Zn6b_y3b" , "#Zn7b_y3b" , "#Zp6b_y3b" , "#Zp7b_y3b" , "#Zn7b_z1b" , "#Zn8b_z1b" , "#Zp7b_z1b" , "#Zp8b_z1b" , "#Zp1t_n1t" , "#Zn1t_n1b" , "#Zn1b_p1b" , "#Zp2t_n2t" , "#Zn2t_n2b" , "#Zn2b_p2b" , "#Zp3t_n3t" , "#Zn3t_n3b" , "#Zn3b_p3b" , "#Zp4t_n4t" , "#Zn4t_n4b" , "#Zn4b_p4b" , "#Zp5t_n5t" , "#Zn5t_n5b" , "#Zn5b_p5b" , "#Zp6t_n6t" , "#Zn6t_n6b" , "#Zn6b_p6b" , "#Zp7t_n7t" , "#Zn7t_n7b" , "#Zn7b_p7b" , "#Zp8t_n8t" , "#Zn8t_n8b" , "#Zn8b_p8b" , 
+]
+
+let default_R = 1000
+let default_C = 0.1
+impedences = []
+
 $(document).ready(function() {
+	for (i =0;i<impedences_id.length;i++){	
+		impedence_name = impedences_id[i].split('#')[1]
+		tmp = {
+			'type':'open',
+		}
+		impedences[impedence_name] = tmp
+	}
+	function impedence_clicked(Z_id) {
+		//console.log(Z_id);
+		update_impedence_state(Z_id)
+		display_impedence_state(Z_id)
+		//console.log(get_impedence_type(Z_id));
+		//console.log(get_impedence_value(Z_id));
+	}
+	
+	function display_impedence_state(Z_id){
+		console.log('#'+Z_id)
+		tmp = '#' + Z_id
+		if ( get_impedence_type(Z_id) == 'R' & get_impedence_value(Z_id) == 0 ){
+        		$(tmp).css({
+        		    fill: "#ff0000"
+        		});
+
+		} else if ( get_impedence_type(Z_id) == 'R' & get_impedence_value(Z_id) > 0){
+        		$(tmp).css({
+        		    fill: "#aaaaaa"
+        		});
+		} else if ( get_impedence_type(Z_id) == 'C' ){
+        		$(tmp).css({
+        		    fill: "#0000ff"
+        		});
+		} else if ( get_impedence_type(Z_id) == 'open'){
+        		$(tmp).css({
+        		    fill: "#ffffff"
+        		});
+
+		}
+	}
+
+	function get_impedence_type(Z_id){
+		return impedences[Z_id]['type']
+	}
+	function get_impedence_value(Z_id){
+		return impedences[Z_id]['value']
+	}
+	function set_impedence_type(Z_id, type){
+		impedences[Z_id]['type'] = type
+	}
+	function set_impedence_value(Z_id, value){
+		impedences[Z_id]['value'] = value
+	}
+
+	function update_impedence_state(Z_id){
+		if (get_impedence_type(Z_id) == 'R' & get_impedence_value(Z_id) == 0){
+			set_impedence_value(Z_id, default_R)
+		} else if ( get_impedence_type(Z_id) == 'R' & get_impedence_value(Z_id) > 0){
+			set_impedence_type(Z_id, 'C')
+			set_impedence_value(Z_id, default_C)
+		} else if ( get_impedence_type(Z_id) == 'C') {
+			set_impedence_type(Z_id, 'open')
+		} else if ( get_impedence_type(Z_id) == 'open' ){		
+			set_impedence_type(Z_id, 'R')
+			set_impedence_value(Z_id, 0)
+		}
+	}
+
+        function openTab(TabName) {
+            var i;
+            var x = document.getElementsByClassName("tab");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            document.getElementById(TabName).style.display = "block";
+        }
+        //$('#Zp1t2p2t').click(function() {
+        //    $('#Zp1t2p2t').css({
+        //        fill: "#ff00ff"
+        //    });
+        //});
+	//tmp = ['#Zp1t2p2t']
+	//for (i =0;i<tmp.length;i++){	
+	//	$(tmp[i]).click(
+	//		function(){
+	//			console.log(this);
+	//		}
+	//	);
+
+	//}
+
+        function openCircuitView(ViewName) {
+            //var i;
+            //var x = document.getElementsByClassName("view");
+            //for (i = 0; i < x.length; i++) {
+            //    x[i].style.display = "none";
+            //}
+            //document.getElementById(ViewName).style.display = "block";
+			if (ViewName == 'Schematic'){
+				turn_off_layout_view();
+			}else if (ViewName == 'Layout'){
+				turn_on_layout_view();
+			}
+			
+        }        
+        function openICView(ViewName) {
+            var i;
+            var x = document.getElementsByClassName("ICView");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            document.getElementById(ViewName).style.display = "block";
+        }
 	// console.log("docuemnt ready");
 	var inst_managerZ = new ManagerZ();  
 	var inst_managerUI = new ManagerUI();  
@@ -46,25 +165,11 @@ $(document).ready(function() {
 			7: {'id': 'p8b'}
 		}
 	}
-	//tmp = ['#Zp1t2p2t']
-	tmp = []
-	for (layer in Nodes){
-		for (cnt in Nodes[layer]){
-			if ( cnt < 7 ) {
-				//console.log(Nodes[layer][cnt]['id'])
-				//console.log(typeof(cnt))
-				//console.log(Nodes[layer][parseInt(cnt)+1]['id'])
-				str = '#Z' + Nodes[layer][cnt]['id'] + '2' + Nodes[layer][parseInt(cnt)+1]['id']
-				//console.log(str)
-				
-				tmp.push(str)
-			}
-		}
-	}
-	for (i =0;i<tmp.length;i++){	
-		$(tmp[i]).click(
+	for (i =0;i<impedences_id.length;i++){	
+		$(impedences_id[i]).click(
 			function(){
-				console.log(this);
+				impedence_clicked(this.id);
+				//console.log(this.id);
 			}
 		);
 
@@ -110,3 +215,6 @@ function turn_on_layout_view(){
 	}
 	
 }
+
+
+

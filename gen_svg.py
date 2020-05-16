@@ -128,6 +128,7 @@ def print_content():
 		
 	print_nodes()
 	print_impedences()
+	print_texts()
 
 
 IC_Pins = {
@@ -181,7 +182,7 @@ def print_connections():
 	tmp_diff_x = abs(tmp_x2 - tmp_x1)
 	tmp_y2 = tmp_y1 + tmp_diff_x
 	print_connection(
-		id = "test",
+		id = "",
 		stroke_color = "#000000", 
 		x1 = tmp_x1,
 		y1 = tmp_y1,
@@ -189,7 +190,7 @@ def print_connections():
 		x2 = tmp_x2, 
 	)
 	print_connection(
-		id = "test",
+		id = "",
 		stroke_color = "#000000", 
 		x1 = Nodes[0][4]['loc_x'],
 		y1 = Nodes[0][4]['loc_y'],
@@ -203,7 +204,7 @@ def print_connections():
 	tmp_diff_x = abs(tmp_x2 - tmp_x1)
 	tmp_y2 = tmp_y1 + tmp_diff_x
 	print_connection(
-		id = "test",
+		id = "",
 		stroke_color = "#000000", 
 		x1 = tmp_x1,
 		y1 = tmp_y1,
@@ -211,7 +212,7 @@ def print_connections():
 		x2 = tmp_x2, 
 	)
 	print_connection(
-		id = "test",
+		id = "",
 		stroke_color = "#000000", 
 		x1 = Nodes[0][3]['loc_x'],
 		y1 = Nodes[0][3]['loc_y'],
@@ -225,7 +226,7 @@ def print_connections():
 		tmp_diff_y = abs(tmp_y2 - tmp_y1)
 		tmp_x2 = tmp_x1 + tmp_diff_y + ic_pin_height/2
 		print_connection(
-			id = "test",
+			id = "",
 			stroke_color = "#000000", 
 			x1 = Nodes[0][i]['loc_x'],
 			y1 = Nodes[0][i]['loc_y'],
@@ -233,7 +234,7 @@ def print_connections():
 			x2 = tmp_x2, 
 		)
 		print_connection(
-			id = "test",
+			id = "",
 			stroke_color = "#000000", 
 			x1 = IC_Pins[i]['x'],
 			y1 = IC_Pins[i]['y'],
@@ -247,7 +248,7 @@ def print_connections():
 		tmp_diff_y = abs(tmp_y2 - tmp_y1)
 		tmp_x2 = tmp_x1 - tmp_diff_y + ic_pin_height/2
 		print_connection(
-			id = "test",
+			id = "",
 			stroke_color = "#000000", 
 			x1 = Nodes[0][i]['loc_x'],
 			y1 = Nodes[0][i]['loc_y'],
@@ -255,7 +256,7 @@ def print_connections():
 			x2 = tmp_x2, 
 		)
 		print_connection(
-			id = "test",
+			id = "",
 			stroke_color = "#000000", 
 			x1 = IC_Pins[i]['x'],
 			y1 = IC_Pins[i]['y'],
@@ -264,7 +265,7 @@ def print_connections():
 		)
 	for each_src_id in Sources[2]:
 		print_connection(
-			id = "W_" + Nodes[3][each_src_id]['id'] +"_Z" + Nodes[3][each_src_id]['id'] + "2"+ Nodes[3][each_src_id+1]['id'], 
+			id = "W_" + Nodes[3][each_src_id]['id'] +"_Z" + Nodes[3][each_src_id]['id'] + "_"+ Nodes[3][each_src_id+1]['id'], 
 			stroke_color = "#000000", 
 			x1 = Nodes[3][each_src_id]['loc_x'],
 			y1 = Nodes[3][each_src_id]['loc_y'],
@@ -272,7 +273,7 @@ def print_connections():
 			y2 = Nodes[3][each_src_id]['loc_y'],
 		)
 		print_connection(
-			id = "W_" + Nodes[3][each_src_id+1]['id'] +"_Z" + Nodes[3][each_src_id]['id'] + "2"+ Nodes[3][each_src_id+1]['id'], 
+			id = "W_" + Nodes[3][each_src_id+1]['id'] +"_Z" + Nodes[3][each_src_id]['id'] + "_"+ Nodes[3][each_src_id+1]['id'], 
 			stroke_color = "#000000", 
 			x1 = Nodes[3][each_src_id+1]['loc_x'],
 			y1 = Nodes[3][each_src_id]['loc_y'],
@@ -282,7 +283,7 @@ def print_connections():
 	for each_layer_src_id in Sources: 
 		for each_src_id in Sources[each_layer_src_id]:
 			print_connection(
-				id = "W_" + Nodes[each_layer_src_id][each_src_id]['id'] +"_Z" + Nodes[each_layer_src_id][each_src_id]['id'] + "2"+ Nodes[each_layer_src_id][each_src_id+1]['id'], 
+				id = "W_" + Nodes[each_layer_src_id][each_src_id]['id'] +"_Z" + Nodes[each_layer_src_id][each_src_id]['id'] + "_"+ Nodes[each_layer_src_id][each_src_id+1]['id'], 
 				stroke_color = "#000000", 
 				x1 = Nodes[each_layer_src_id][each_src_id]['loc_x'],
 				y1 = Nodes[each_layer_src_id][each_src_id]['loc_y'],
@@ -290,7 +291,7 @@ def print_connections():
 				y2 = Nodes[each_layer_src_id][each_src_id]['loc_y'],
 			)
 			print_connection(
-				id = "W_" + Nodes[each_layer_src_id][each_src_id+1]['id'] +"_Z" + Nodes[each_layer_src_id][each_src_id]['id'] + "2"+ Nodes[each_layer_src_id][each_src_id+1]['id'], 
+				id = "W_" + Nodes[each_layer_src_id][each_src_id+1]['id'] +"_Z" + Nodes[each_layer_src_id][each_src_id]['id'] + "_"+ Nodes[each_layer_src_id][each_src_id+1]['id'], 
 				stroke_color = "#000000", 
 				x1 = Nodes[each_layer_src_id][each_src_id+1]['loc_x'],
 				y1 = Nodes[each_layer_src_id][each_src_id]['loc_y'],
@@ -300,7 +301,7 @@ def print_connections():
 	for each_layer_src_id in Sources: 
 		for each_src_id in Nodes[each_layer_src_id]:
 			print_connection(
-				id = "W_" + Nodes[each_layer_src_id][each_src_id]['id'] +"_Z" + Nodes[each_layer_src_id][each_src_id]['id'] + "2"+ Nodes[each_layer_src_id+1][each_src_id]['id'], 
+				id = "W_" + Nodes[each_layer_src_id][each_src_id]['id'] +"_Z" + Nodes[each_layer_src_id][each_src_id]['id'] + "_"+ Nodes[each_layer_src_id+1][each_src_id]['id'], 
 				stroke_color = "#000000", 
 				x1 = Nodes[each_layer_src_id][each_src_id]['loc_x'],
 				y1 = Nodes[each_layer_src_id][each_src_id]['loc_y'],
@@ -309,7 +310,7 @@ def print_connections():
 			)
 		for each_src_id in Nodes[each_layer_src_id]:
 			print_connection(
-				id = "W_" + Nodes[each_layer_src_id+1][each_src_id]['id'] +"_Z" + Nodes[each_layer_src_id][each_src_id]['id'] + "2"+ Nodes[each_layer_src_id+1][each_src_id]['id'], 
+				id = "W_" + Nodes[each_layer_src_id+1][each_src_id]['id'] +"_Z" + Nodes[each_layer_src_id][each_src_id]['id'] + "_"+ Nodes[each_layer_src_id+1][each_src_id]['id'], 
 				stroke_color = "#000000", 
 				x1 = Nodes[each_layer_src_id][each_src_id]['loc_x'],
 				y1 = Nodes[each_layer_src_id+1][each_src_id]['loc_y'],
@@ -318,7 +319,7 @@ def print_connections():
 			)
 		for each_src_id in Sources[each_layer_src_id]:
 			print_connection(
-				id = "W_" + Nodes[each_layer_src_id][each_src_id]['id'] +"_Z" + Nodes[each_layer_src_id][each_src_id]['id'] + "2"+ Sources[each_layer_src_id][each_src_id]['id'], 
+				id = "W_" + Nodes[each_layer_src_id][each_src_id]['id'] +"_Z" + Nodes[each_layer_src_id][each_src_id]['id'] + "_"+ Sources[each_layer_src_id][each_src_id]['id'], 
 				stroke_color = "#000000", 
 				x1 = Nodes[each_layer_src_id][each_src_id]['loc_x'],
 				y1 = Nodes[each_layer_src_id][each_src_id]['loc_y'],
@@ -326,7 +327,7 @@ def print_connections():
 				y2 = Sources[each_layer_src_id][each_src_id]['loc_y'] - pin_pitch/4,
 			)
 			print_connection(
-				id = "W_" + Nodes[each_layer_src_id][each_src_id+1]['id'] +"_Z" + Nodes[each_layer_src_id][each_src_id]['id'] + "2"+ Sources[each_layer_src_id][each_src_id]['id'], 
+				id = "W_" + Nodes[each_layer_src_id][each_src_id+1]['id'] +"_Z" + Nodes[each_layer_src_id][each_src_id]['id'] + "_"+ Sources[each_layer_src_id][each_src_id]['id'], 
 				stroke_color = "#000000", 
 				x1 = Nodes[each_layer_src_id][each_src_id+1]['loc_x'],
 				y1 = Nodes[each_layer_src_id][each_src_id+1]['loc_y'],
@@ -334,7 +335,7 @@ def print_connections():
 				y2 = Sources[each_layer_src_id][each_src_id]['loc_y'] - pin_pitch/4,
 			)
 			print_connection(
-				id = "W_" + Nodes[each_layer_src_id+1][each_src_id]['id'] +"_Z" + Nodes[each_layer_src_id][each_src_id]['id'] + "2"+ Sources[each_layer_src_id][each_src_id]['id'], 
+				id = "W_" + Nodes[each_layer_src_id+1][each_src_id]['id'] +"_Z" + Nodes[each_layer_src_id][each_src_id]['id'] + "_"+ Sources[each_layer_src_id][each_src_id]['id'], 
 				stroke_color = "#000000", 
 				x1 = Nodes[each_layer_src_id+1][each_src_id]['loc_x'],
 				y1 = Nodes[each_layer_src_id+1][each_src_id]['loc_y'],
@@ -342,7 +343,7 @@ def print_connections():
 				y2 = Sources[each_layer_src_id][each_src_id]['loc_y'] + pin_pitch/4,
 			)
 			print_connection(
-				id = "W_" + Nodes[each_layer_src_id+1][each_src_id+1]['id'] +"_Z" + Nodes[each_layer_src_id+1][each_src_id]['id'] + "2"+ Sources[each_layer_src_id][each_src_id]['id'], 
+				id = "W_" + Nodes[each_layer_src_id+1][each_src_id+1]['id'] +"_Z" + Nodes[each_layer_src_id+1][each_src_id]['id'] + "_"+ Sources[each_layer_src_id][each_src_id]['id'], 
 				stroke_color = "#000000", 
 				x1 = Nodes[each_layer_src_id+1][each_src_id+1]['loc_x'],
 				y1 = Nodes[each_layer_src_id+1][each_src_id+1]['loc_y'],
@@ -350,7 +351,7 @@ def print_connections():
 				y2 = Sources[each_layer_src_id][each_src_id]['loc_y'] + pin_pitch/4,
 			)
 			print_connection(
-				id = "W_" + Sources[each_layer_src_id][each_src_id]['id'] +"_Z" + Nodes[each_layer_src_id][each_src_id]['id'] + "2"+ Sources[each_layer_src_id][each_src_id]['id'], 
+				id = "W_" + Sources[each_layer_src_id][each_src_id]['id'] +"_Z" + Nodes[each_layer_src_id][each_src_id]['id'] + "_"+ Sources[each_layer_src_id][each_src_id]['id'], 
 				stroke_color = "#000000", 
 				x1 = Sources[each_layer_src_id][each_src_id]['loc_x'],
 				y1 = Sources[each_layer_src_id][each_src_id]['loc_y'],
@@ -358,7 +359,7 @@ def print_connections():
 				y2 = Sources[each_layer_src_id][each_src_id]['loc_y'] - pin_pitch/4,
 			)
 			print_connection(
-				id = "W_" + Sources[each_layer_src_id][each_src_id]['id'] +"_Z" + Nodes[each_layer_src_id][each_src_id+1]['id'] + "2"+ Sources[each_layer_src_id][each_src_id]['id'], 
+				id = "W_" + Sources[each_layer_src_id][each_src_id]['id'] +"_Z" + Nodes[each_layer_src_id][each_src_id+1]['id'] + "_"+ Sources[each_layer_src_id][each_src_id]['id'], 
 				stroke_color = "#000000", 
 				x1 = Sources[each_layer_src_id][each_src_id]['loc_x'],
 				y1 = Sources[each_layer_src_id][each_src_id]['loc_y'],
@@ -366,7 +367,7 @@ def print_connections():
 				y2 = Sources[each_layer_src_id][each_src_id]['loc_y'] - pin_pitch/4,
 			)
 			print_connection(
-				id = "W_" + Sources[each_layer_src_id][each_src_id]['id'] +"_Z" + Nodes[each_layer_src_id][each_src_id+1]['id'] + "2"+ Sources[each_layer_src_id][each_src_id]['id'], 
+				id = "W_" + Sources[each_layer_src_id][each_src_id]['id'] +"_Z" + Nodes[each_layer_src_id][each_src_id+1]['id'] + "_"+ Sources[each_layer_src_id][each_src_id]['id'], 
 				stroke_color = "#000000", 
 				x1 = Sources[each_layer_src_id][each_src_id]['loc_x'],
 				y1 = Sources[each_layer_src_id][each_src_id]['loc_y'],
@@ -374,7 +375,7 @@ def print_connections():
 				y2 = Sources[each_layer_src_id][each_src_id]['loc_y'] + pin_pitch/4,
 			)
 			print_connection(
-				id = "W_" + Sources[each_layer_src_id][each_src_id]['id'] +"_Z" + Nodes[each_layer_src_id+1][each_src_id+1]['id'] + "2"+ Sources[each_layer_src_id][each_src_id]['id'], 
+				id = "W_" + Sources[each_layer_src_id][each_src_id]['id'] +"_Z" + Nodes[each_layer_src_id+1][each_src_id+1]['id'] + "_"+ Sources[each_layer_src_id][each_src_id]['id'], 
 				stroke_color = "#000000", 
 				x1 = Sources[each_layer_src_id][each_src_id]['loc_x'],
 				y1 = Sources[each_layer_src_id][each_src_id]['loc_y'],
@@ -404,6 +405,10 @@ def print_45_impedence(id, x, y, stroke_color, rotate_degree):
 	xx = x - wire_length/2 + pin_pitch/4
 	yy = y - wire_width/2 + pin_pitch/4
 	print "<rect fill=\"#ffffff\" x=\"" + str(xx) +"\" y=\""+ str(yy) +"\" width=\""+ str(wire_length) +"\" height=\""+ str(wire_width) +"\" transform=\"rotate( " + str(rotate_degree) + ", " +str(xx + wire_length/2)+" ,"+str(yy + wire_width/2) +") \" id=\""+ id +"\" stroke=\""+ stroke_color +"\"/>"
+
+def print_text(id, x, y, font_size, text_fill, stroke_color, text):
+	print "<text fill=\"" + text_fill +"\" stroke=\"" + stroke_color+ "\" stroke-width=\"0\" stroke-dasharray=\"null\" stroke-linejoin=\"null\" stroke-linecap=\"null\" x=\"" + str(x) +"\" y=\"" + str(y)+ "\" id="+ id +" font-size=\"" + str(font_size) +"\" font-family=\"serif\" text-anchor=\"middle\" xml:space=\"preserve\">" + text + "</text>"
+
 
 def print_impedence(id, stroke_color, height, width, x, y, fill_color):
 	print "<rect id=\"" + id + "\" stroke=\"" + stroke_color + "\" height=\""+ str(height) +"\" width=\"" + str(width) +  "\" y=\"" + str(y) + "\" x=\"" + str(x) + "\" fill=\"" + fill_color + "\"/>"
@@ -437,6 +442,36 @@ def print_nodes():
 				cy = origin_y + pin_pitch/2 + each_layer_src_id * pin_pitch, 
 			)
 
+def print_texts():
+	for i in range(0,7):
+		print_text(
+			id = "txt_" + Sources[2][i]['id'] , 
+			x = origin_x + pin_pitch * (i) +pin_pitch/2 + 20, 
+			y = origin_y+pin_pitch*5/2 + 5, 
+			font_size = 12, 
+			text_fill = "#000000", 
+			stroke_color = "#000000",
+			text = Sources[2][i]['id'][0].upper()
+		)
+		print_text(
+			id = "txt_" + Sources[1][i]['id'] , 
+			x = origin_x + pin_pitch * (i) +pin_pitch/2 + 20, 
+			y = origin_y+pin_pitch*3/2 + 5, 
+			font_size = 12, 
+			text_fill = "#000000", 
+			stroke_color = "#000000",
+			text = Sources[1][i]['id'][0].upper()
+		)
+		print_text(
+			id = "txt_" + Sources[0][i]['id'] , 
+			x = origin_x + pin_pitch * (i) +pin_pitch/2 + 20, 
+			y = origin_y+pin_pitch/2 + 5, 
+			font_size = 12, 
+			text_fill = "#000000", 
+			stroke_color = "#000000",
+			text = Sources[0][i]['id'][0].upper()
+		)
+	
 def print_impedences():
 	#W_p1t_Zp1t2p2t
 	for i in range(1, 8):
@@ -452,7 +487,7 @@ def print_impedences():
 				layer_y_level = 3
 			# Zp1t2p2t
 			print_impedence(
-				id = "Z" + layer['type'] + str(i) + layer['depth'] + "2" + layer['type'] + str(i+1) + layer['depth'], 
+				id = "Z" + layer['type'] + str(i) + layer['depth'] + "_" + layer['type'] + str(i+1) + layer['depth'], 
 				stroke_color = "#000000", 
 				height = 10, width = 20, 
 				x = origin_x + pin_pitch/2 - wire_length/2 + (i-1)* pin_pitch, 
@@ -463,7 +498,7 @@ def print_impedences():
 		for each_src_id in Sources[each_layer_src_id]:
 			#Zp1t2x1t
 			print_45_impedence( 
-				id = "Z" + Nodes[each_layer_src_id][each_src_id]['id'] + "2" + Nodes[each_layer_src_id+1][each_src_id]['id'], 
+				id = "Z" + Nodes[each_layer_src_id][each_src_id]['id'] + "_" + Sources[each_layer_src_id][each_src_id]['id'], 
 				x = origin_x + each_src_id * pin_pitch, 
 				y = origin_y + each_layer_src_id * pin_pitch, 
 				stroke_color = "#000000", 
@@ -471,7 +506,7 @@ def print_impedences():
 			)
 			#Zp2t2x1t
 			print_45_impedence( 
-				id = "Z" + Nodes[each_layer_src_id][each_src_id+1]['id'] + "2" + Nodes[each_layer_src_id+1][each_src_id]['id'], 
+				id = "Z" + Nodes[each_layer_src_id][each_src_id+1]['id'] + "_" + Sources[each_layer_src_id][each_src_id]['id'], 
 				x = origin_x + each_src_id * pin_pitch + pin_pitch/2, 
 				y = origin_y + each_layer_src_id * pin_pitch, 
 				stroke_color = "#000000", 
@@ -479,7 +514,7 @@ def print_impedences():
 			)
 			#Zn1t2x1t
 			print_45_impedence( 
-				id = "Z" + Nodes[each_layer_src_id+1][each_src_id]['id'] + "2" + Nodes[each_layer_src_id+1][each_src_id]['id'], 
+				id = "Z" + Nodes[each_layer_src_id+1][each_src_id]['id'] + "_" + Sources[each_layer_src_id][each_src_id]['id'], 
 				x = origin_x + each_src_id * pin_pitch, 
 				y = origin_y + each_layer_src_id * pin_pitch + pin_pitch/2, 
 				stroke_color = "#000000", 
@@ -487,7 +522,7 @@ def print_impedences():
 			)
 			#Zn2t2x1t
 			print_45_impedence( 
-				id = "Z" + Nodes[each_layer_src_id+1][each_src_id+1]['id'] + "2" + Nodes[each_layer_src_id+1][each_src_id]['id'], 
+				id = "Z" + Nodes[each_layer_src_id+1][each_src_id+1]['id'] + "_" + Sources[each_layer_src_id][each_src_id]['id'], 
 				x = origin_x + each_src_id * pin_pitch + pin_pitch/2, 
 				y = origin_y + each_layer_src_id * pin_pitch + pin_pitch/2, 
 				stroke_color = "#000000", 
@@ -496,7 +531,7 @@ def print_impedences():
 
 	for i in range(1,9):
 		print_impedence(
-			id = "Zp" + str(i) + "t2n" + str(i) +"t", 
+			id = "Zp" + str(i) + "t_n" + str(i) +"t", 
 			stroke_color = "#000000", 
 			height = wire_length, width = wire_width, 
 			x = origin_x + (i-1) * pin_pitch - wire_width/2,
@@ -504,7 +539,7 @@ def print_impedences():
 			fill_color = "#ffffff"
 		)
 		print_impedence(
-			id = "Zn" + str(i) + "t2n" + str(i) +"b", 
+			id = "Zn" + str(i) + "t_n" + str(i) +"b", 
 			stroke_color = "#000000", 
 			height = wire_length, width = wire_width, 
 			x = origin_x + (i-1)*pin_pitch - wire_width/2, 
@@ -512,7 +547,7 @@ def print_impedences():
 			fill_color = "#ffffff"
 		)
 		print_impedence(
-			id = "Zn" + str(i) + "b2p" + str(i) +"b", 
+			id = "Zn" + str(i) + "b_p" + str(i) +"b", 
 			stroke_color = "#000000", 
 			height = wire_length, width = wire_width, 
 			x = origin_x + (i-1)*pin_pitch - wire_width/2, 

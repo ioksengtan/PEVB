@@ -100,53 +100,6 @@ This means that the output of the op amp is 180 degrees of out of phase with the
 
     </div>
 
-    <script>
-        function openTab(TabName) {
-            var i;
-            var x = document.getElementsByClassName("tab");
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            document.getElementById(TabName).style.display = "block";
-        }
-        //$('#Zp1t2p2t').click(function() {
-        //    $('#Zp1t2p2t').css({
-        //        fill: "#ff00ff"
-        //    });
-        //});
-	tmp = ['#Zp1t2p2t']
-	for (i =0;i<tmp.length;i++){	
-		$(tmp[i]).click(
-			function(){
-				console.log(this);
-			}
-		);
-
-	}
-
-        function openCircuitView(ViewName) {
-            //var i;
-            //var x = document.getElementsByClassName("view");
-            //for (i = 0; i < x.length; i++) {
-            //    x[i].style.display = "none";
-            //}
-            //document.getElementById(ViewName).style.display = "block";
-			if (ViewName == 'Schematic'){
-				turn_off_layout_view();
-			}else if (ViewName == 'Layout'){
-				turn_on_layout_view();
-			}
-			
-        }        
-        function openICView(ViewName) {
-            var i;
-            var x = document.getElementsByClassName("ICView");
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            document.getElementById(ViewName).style.display = "block";
-        }
-    </script>
     </div>
 
 </body>
