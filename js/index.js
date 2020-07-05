@@ -138,6 +138,7 @@ impedences = []
 
 
 $(document).ready(function() {
+	w3_close();
 	for (i =0;i<impedences_id.length;i++){	
 		impedence_name = impedences_id[i].split('#')[1]
 		tmp = {

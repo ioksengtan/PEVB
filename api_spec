@@ -1,0 +1,166 @@
+lp = 
+{
+	'unit':{
+		'R':'',
+		'C':'p',
+	},
+	'circuit':{
+			'name':'low_pass_filter',
+			'schematic':{
+				'map':[
+					['r0', 'r100', 'o', 'c1', 'c0.02', 'o', 'o', 'o'],
+					['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
+					['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
+					['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
+					['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
+					['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
+					['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
+					['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
+					['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
+					['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
+					['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
+					['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
+					['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o']
+				],
+				'Zp2t_p3t':'r100',
+				'Zp3t_p4t:'o',
+				'Zp4t_p5t:'c1'
+			},
+			'layout_is_open':true,
+			'diagram':{
+				'src':'https://lh5.googleusercontent.com/-dBHEUF4iHtQ/TW6b19-7N5I/AAAAAAAAACs/9NZHyRCTy6Y/s320/low-pass-filter-circuit-10khz-using-ua741.jpg'
+			},
+			'description':
+				'<p>Active Inverting Op Amp Low Pass Filter Circuit The inverting low pass filter circuit that we will build with an LM741 op amp chip and a few resistors and a capacitor is shown below. This low pass filter below is an inverting low pass filter. This means that the output of the op amp is 180 degrees of out of phase with the input signal. This correlates, from an image angle, vertically flipping the input signal and this what would appear as output.</p>',
+	},
+	'ic':{
+		'name':'OP741',
+		'description':"<p>The 741 is the godfather of all operational amplifiers (amplifiers on a chip). Although most up-to-date designs beat it for speed, low noise, etc, it still works well as a general purpose device. One of its advantages is that it is compensated (its frequency response is tailored) to ensure that under most curcumstances it won't produce unwanted spurious oscillations. This means it is easy to use, but the down-side of this is the poor speed/gain performance compared to more modern op-amps.</p>",
+		'pin_definition':{
+			1:{
+				'pin_name':'OFFSET',
+				'direction':'input',
+				'description':'External input offset voltage adjustment'
+			},
+			2:{
+				'pin_name':'IN-',
+				'direction':'input',
+				'description':'Inverting input'
+			},
+			3:{
+				'pin_name':'IN+',
+				'direction':'input',
+				'description':'Noninverting input'
+			},
+			4:{
+				'pin_name':'VCC-',
+				'direction':'-',
+				'description':'Negative supply'
+			},
+			5:{
+				'pin_name':'OFFSET-',
+				'direction':'input',
+				'description':'External input offset voltage adjustment'
+			},
+			6:{
+				'pin_name':'OUT',
+				'direction':'output',
+				'description':'Output'
+			},
+			7:{
+				'pin_name':'VCC+',
+				'direction':'-',
+				'description':'Positive supply'
+			},
+			8:{
+				'pin_name':'NC',
+				'direction':'-',
+				'description':'No internal connection'
+			}
+		},
+		'schematic':{
+			'src':'https://www.st-andrews.ac.uk/~www_pa/Scots_Guide/datasheets/Opamps/741dia.gif'
+		}
+	}
+
+}
+
+
+555_2_tone_alarm = 
+{
+	'unit':{
+		'R':'',
+		'C':'p',
+	},
+	'circuit':{
+			'name':'low_pass_filter',
+			'schematic':{
+				'Zp1t_p2t':{
+					'R':220
+				},
+				'Zp2t_p3t':{
+					'R':0
+				},
+				'Zp1t_n2t':{
+					'C':220
+				}
+				
+			},
+			'layout_is_open':true,
+			'diagram':{
+				'src':'http://hilaroad.com/camp/projects/555_twotone/555_twotone_diagram.GIF'
+			},
+			'description':
+				'<p>Active Inverting Op Amp Low Pass Filter Circuit The inverting low pass filter circuit that we will build with an LM741 op amp chip and a few resistors and a capacitor is shown below. This low pass filter below is an inverting low pass filter. This means that the output of the op amp is 180 degrees of out of phase with the input signal. This correlates, from an image angle, vertically flipping the input signal and this what would appear as output.</p>',
+	},
+	'ic':{
+		'name':'OP741',
+		'description':"<p>The 741 is the godfather of all operational amplifiers (amplifiers on a chip). Although most up-to-date designs beat it for speed, low noise, etc, it still works well as a general purpose device. One of its advantages is that it is compensated (its frequency response is tailored) to ensure that under most curcumstances it won't produce unwanted spurious oscillations. This means it is easy to use, but the down-side of this is the poor speed/gain performance compared to more modern op-amps.</p>",
+		'pin_definition':{
+			1:{
+				'pin_name':'OFFSET',
+				'direction':'input',
+				'description':'External input offset voltage adjustment'
+			},
+			2:{
+				'pin_name':'IN-',
+				'direction':'input',
+				'description':'Inverting input'
+			},
+			3:{
+				'pin_name':'IN+',
+				'direction':'input',
+				'description':'Noninverting input'
+			},
+			4:{
+				'pin_name':'VCC-',
+				'direction':'-',
+				'description':'Negative supply'
+			},
+			5:{
+				'pin_name':'OFFSET-',
+				'direction':'input',
+				'description':'External input offset voltage adjustment'
+			},
+			6:{
+				'pin_name':'OUT',
+				'direction':'output',
+				'description':'Output'
+			},
+			7:{
+				'pin_name':'VCC+',
+				'direction':'-',
+				'description':'Positive supply'
+			},
+			8:{
+				'pin_name':'NC',
+				'direction':'-',
+				'description':'No internal connection'
+			}
+		},
+		'schematic':{
+			'src':'https://www.st-andrews.ac.uk/~www_pa/Scots_Guide/datasheets/Opamps/741dia.gif'
+		}
+	}
+
+}
