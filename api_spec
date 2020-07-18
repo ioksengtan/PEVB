@@ -8,25 +8,25 @@ lp =
 			'name':'low_pass_filter',
 			'schematic':{
 				'map':[
-					['r0', 'r100', 'o', 'c1', 'c0.02', 'o', 'o', 'o'],
+				//r -> gray, o-> open (white), c-> (blue), s->red
+					['r0', 'r100', 'o', 'c1', 'c0.02', 'o', 'o'],
+					['s', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
+					['o', 'o', 'o', 'o', 'o', 'o', 'o'],
 					['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
-					['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
+					['o', 'o', 'o', 'o', 'o', 'o', 'o'],
 					['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
-					['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
+					['o', 'o', 'o', 'o', 'o', 'o', 'o'],
 					['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
-					['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
+					['o', 'o', 'o', 'o', 'o', 'o', 'o'],
 					['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
-					['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
+					['o', 'o', 'o', 'o', 'o', 'o', 'o'],
 					['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
-					['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
-					['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'],
-					['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o']
+					['o', 'o', 'o', 'o', 'o', 'o', 'o']
 				],
 				'Zp2t_p3t':'r100',
 				'Zp3t_p4t:'o',
 				'Zp4t_p5t:'c1'
 			},
-			'layout_is_open':true,
 			'diagram':{
 				'src':'https://lh5.googleusercontent.com/-dBHEUF4iHtQ/TW6b19-7N5I/AAAAAAAAACs/9NZHyRCTy6Y/s320/low-pass-filter-circuit-10khz-using-ua741.jpg'
 			},
@@ -81,7 +81,8 @@ lp =
 		'schematic':{
 			'src':'https://www.st-andrews.ac.uk/~www_pa/Scots_Guide/datasheets/Opamps/741dia.gif'
 		}
-	}
+	},
+	'info':"<h1>How to build</h1>"
 
 }
 
@@ -106,7 +107,6 @@ lp =
 				}
 				
 			},
-			'layout_is_open':true,
 			'diagram':{
 				'src':'http://hilaroad.com/camp/projects/555_twotone/555_twotone_diagram.GIF'
 			},
