@@ -4,8 +4,10 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script type=" text/javascript" src="js/jquery-3.4.1.min.js"></script>
+	<script type=" text/javascript" src="js/ImpedancesArrayToMap.js"></script>
+	<!-- import config -->
 	<script type=" text/javascript" src="js/config.js"></script>
-	<script type=" text/javascript" src="js/index.js"></script>
+	<script type=" text/javascript" src="js/create.js"></script>
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
@@ -42,10 +44,6 @@
 		<a href="/edit.html" class="w3-bar-item w3-button" >Create new page</a>
   </div>
   <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a> 
-  <!--
-  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a> 
-  <a href="#footer"  class="w3-bar-item w3-button w3-padding">Subscribe</a>
-	-->
 </nav>
 
 <!-- Top menu on small screens -->
@@ -59,19 +57,8 @@
 
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:250px">
-
   <!-- Push down content on small screens -->
   <div class="w3-hide-large" style="margin-top:83px"></div>
-  
-  <!-- Top header 
-  <header class="w3-container w3-xlarge">
-    <p class="w3-left">Jeans</p>
-    <p class="w3-right">
-      <i class="fa fa-shopping-cart w3-margin-right"></i>
-      <i class="fa fa-search"></i>
-    </p>
-  </header>
--->
   <div class="w3-row">
         <div class="w3-col m6 l6">
               <div class="w3-bar">
@@ -80,6 +67,9 @@
                   <a href="#" class="w3-bar-item w3-button" onclick="openCircuitView('Logical_Connections')">Logical Connections</a>
                 </div>
               <div id="Schematic" class="view" width="100%" >
+						<h1 id="title"></h1>
+						<div> Impedance value: <span id="ImpedanceValue"></span></div>
+
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 640 480" >
 						<!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
 						<g>
@@ -679,202 +669,55 @@
 			</div>
 
 			<div class="w3-col m6 l6">
-				<div class="w3-bar w3-light-grey">
-					<a id="ic_name" href="#" class="w3-bar-item">OP741</a>
-					<a href="#" class="w3-bar-item w3-button" onclick="openICView('PinLocation')">IC Schematic</a>
-					<a href="#" class="w3-bar-item w3-button" onclick="openICView('PinDefinition')">Pin Definition</a>
-					<a href="#" class="w3-bar-item w3-button" onclick="openICView('ICDescription')">IC Description</a>
+				<div class="w3-bar w3-light-grey" >
+					<a id="ic_name" href="#" class="w3-bar-item" ></a>
+					<a href="#" class="w3-bar-item w3-button" onclick="openICView('PinLocation')" id="PinLocationTitle"></a>
+					<a href="#" class="w3-bar-item w3-button" onclick="openICView('PinDefinition')" id="PinDefinitionTitle"></a>
+					<a href="#" class="w3-bar-item w3-button" onclick="openICView('ICDescription')" id="ICDescriptionTitle"></a>
 				</div>
 				<div class="ICView" id="PinLocation"  style="display:none">
-					<img src="https://www.st-andrews.ac.uk/~www_pa/Scots_Guide/datasheets/Opamps/741dia.gif"  style="width:100%" class="w3-image"/>
+					<img style="width:100%" class="w3-image"/>
 				</div>
 				<div class="ICView" id="ICDescription" style="display:none">
-				<h1>IC Description</h1>
-				<p>The 741 is the godfather of all operational amplifiers (amplifiers on a chip). Although most up-to-date designs beat it for speed, low noise, etc, it still works well as a general purpose device. One of its advantages is that it is compensated (its frequency response is tailored) to ensure that under most curcumstances it won't produce unwanted spurious oscillations. This means it is easy to use, but the down-side of this is the poor speed/gain performance compared to more modern op-amps.
-				</p>
+					<h1></h1>
+					<p></p>
 				</div>
 				<div class="ICView" id="PinDefinition">
 					<table class="w3-table-all">
-					<tr>
-					  <th>Pin</th>
-					  <th>Pin name</th>
-					  <th>I/O</th>
-					  <th>Description</th>
-					</tr>
-					<tr>
-					  <td>1</td>
-					  <td>OFFSET N1</td>
-					  <td>input</td>
-					  <td>External input offset voltage adjustment</td>
-					</tr>
-					<tr>
-					  <td>2</td>
-					  <td>IN-</td>
-					  <td>input</td>
-					  <td>Inverting input</td>
-					</tr>
-					<tr>
-					  <td>3</td>
-					  <td>IN+</td>
-					  <td>input</td>
-					  <td>Noninverting input</td>
-					</tr>
-					<tr>
-					  <td>4</td>
-					  <td>VCC-</td>
-					  <td>-</td>
-					  <td>Negative supply</td>
-					</tr>
-					<tr>
-					  <td>5</td>
-					  <td>OFFSET-</td>
-					  <td>input</td>
-					  <td>External input offset voltage adjustment</td>
-					</tr>
-					<tr>
-					  <td>6</td>
-					  <td>OUT</td>
-					  <td>ouput</td>
-					  <td>Output</td>
-					</tr>
-					<tr>
-					  <td>7</td>
-					  <td>VCC+</td>
-					  <td>-</td>
-					  <td>Positive supply</td>
-					</tr>
-					<tr>
-					  <td>8</td>
-					  <td>NC</td>
-					  <td>-</td>
-					  <td>No internal connection</td>
-					</tr>
+						<tr>
+							<th>Pin</th>
+							<th>Pin name</th>
+							<th>I/O</th>
+							<th>Description</th>
+						</tr>
+						<tr></tr>
+						<tr></tr>
+						<tr></tr>
+						<tr></tr>
+						<tr></tr>
+						<tr></tr>
+						<tr></tr>
+						<tr></tr>
 					</table>
 				</div>
 			</div>
 	</div>
 	<div class="w3-row">
-		<div class="w3-col m6 l6">
-                <h1 class="w3-margin-left">Circuit Schematic</h1>
-					<img src="https://lh5.googleusercontent.com/-dBHEUF4iHtQ/TW6b19-7N5I/AAAAAAAAACs/9NZHyRCTy6Y/s320/low-pass-filter-circuit-10khz-using-ua741.jpg" style="width:80%" class="w3-image"/>				
+		<div class="w3-col m6 l6" id="CircuitSchematic">
+      <h1 class="w3-margin-left"></h1>
+			<img style="width:80%" class="w3-image"/>
 		</div>
-		
-        	
-		<div class="w3-col m6 l6">
-
-			<h1>Circuit Description</h1>
-				
-			<p>Active Inverting Op Amp Low Pass Filter Circuit
-The inverting low pass filter circuit that we will build with an LM741 op amp chip and a few resistors and a capacitor is shown below.
-
-This low pass filter below is an inverting low pass filter.
-
-This means that the output of the op amp is 180 degrees of out of phase with the input signal. This correlates, from an image angle, vertically flipping the input signal and this what would appear as output.</p>				
-				
+		<div class="w3-col m6 l6" id="CircuitDescription">
+			<h1></h1>
+			<p></p>
 		</div>
 	</div>
 	<div class="w3-row ">
-		<div class="w3-center">
-			<h1>How to build</h1>
+		<div class="w3-center" id="info">
+			<h1></h1>
 		</div>
-		
 	</div>
-</div>	
-  <!--
-  <div class="w3-container w3-text-grey" id="jeans">
-    <p>8 items</p>
-  </div>
-  -->
-  <!-- Product grid 
-  <div class="w3-row w3-grayscale">
-    <div class="w3-col l3 s6">
-
-    </div>
-
-    <div class="w3-col l3 s6">
-      <div class="w3-container">
-        
-        <p>Mega Ripped Jeans<br><b>$19.99</b></p>
-      </div>
-      
-    </div>
-
-    
-    
-  </div>
-  -->
-  
-  <!-- Subscribe section 
-  <div class="w3-container w3-black w3-padding-32">
-    <h1>Subscribe</h1>
-    <p>To get special offers and VIP treatment:</p>
-    <p><input class="w3-input w3-border" type="text" placeholder="Enter e-mail" style="width:100%"></p>
-    <button type="button" class="w3-button w3-red w3-margin-bottom">Subscribe</button>
-  </div>
-  -->
-  <!-- Footer 
-  <footer class="w3-padding-64 w3-light-grey w3-small w3-center" id="footer">
-    <div class="w3-row-padding">
-      <div class="w3-col s4">
-        <h4>Contact</h4>
-        <p>Questions? Go ahead.</p>
-        <form action="/action_page.php" target="_blank">
-          <p><input class="w3-input w3-border" type="text" placeholder="Name" name="Name" required></p>
-          <p><input class="w3-input w3-border" type="text" placeholder="Email" name="Email" required></p>
-          <p><input class="w3-input w3-border" type="text" placeholder="Subject" name="Subject" required></p>
-          <p><input class="w3-input w3-border" type="text" placeholder="Message" name="Message" required></p>
-          <button type="submit" class="w3-button w3-block w3-black">Send</button>
-        </form>
-      </div>
-
-      <div class="w3-col s4">
-        <h4>About</h4>
-        <p><a href="#">About us</a></p>
-        <p><a href="#">We're hiring</a></p>
-        <p><a href="#">Support</a></p>
-        <p><a href="#">Find store</a></p>
-        <p><a href="#">Shipment</a></p>
-        <p><a href="#">Payment</a></p>
-        <p><a href="#">Gift card</a></p>
-        <p><a href="#">Return</a></p>
-        <p><a href="#">Help</a></p>
-      </div>
-
-      <div class="w3-col s4 w3-justify">
-        <h4>Store</h4>
-        <p><i class="fa fa-fw fa-map-marker"></i> Company Name</p>
-        <p><i class="fa fa-fw fa-phone"></i> 0044123123</p>
-        <p><i class="fa fa-fw fa-envelope"></i> ex@mail.com</p>
-        <h4>We accept</h4>
-        <p><i class="fa fa-fw fa-cc-amex"></i> Amex</p>
-        <p><i class="fa fa-fw fa-credit-card"></i> Credit Card</p>
-        <br>
-        <i class="fa fa-facebook-official w3-hover-opacity w3-large"></i>
-        <i class="fa fa-instagram w3-hover-opacity w3-large"></i>
-        <i class="fa fa-snapchat w3-hover-opacity w3-large"></i>
-        <i class="fa fa-pinterest-p w3-hover-opacity w3-large"></i>
-        <i class="fa fa-twitter w3-hover-opacity w3-large"></i>
-        <i class="fa fa-linkedin w3-hover-opacity w3-large"></i>
-      </div>
-    </div>
-  </footer>
-
-  <div class="w3-black w3-center w3-padding-24">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></div>
--->
-  <!-- End page content -->
 </div>
-
-<!-- Newsletter Modal -->
-<div id="newsletter" class="w3-modal">
-  <div class="w3-modal-content w3-animate-zoom" style="padding:32px">
-    <div class="w3-container w3-white w3-center">
-      <i onclick="document.getElementById('newsletter').style.display='none'" class="fa fa-remove w3-right w3-button w3-transparent w3-xxlarge"></i>
-      <h2 class="w3-wide">NEWSLETTER</h2>
-      <p>Join our mailing list to receive updates on new arrivals and special offers.</p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Enter e-mail"></p>
-      <button type="button" class="w3-button w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('newsletter').style.display='none'">Subscribe</button>
-    </div>
-  </div>
 </div>
 
 <script>

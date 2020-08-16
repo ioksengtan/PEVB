@@ -19,7 +19,6 @@ function turn_off_layout_view(){
 	
 }
 
-
 function turn_on_layout_view(){
 	for(i=1;i<9;i++){
 		$('#LW_P'+i+'t_Zp'+i+'t2n'+i+'t').css({
@@ -51,20 +50,20 @@ function display_impedence_state(Z_id){
 	tmp = '#' + Z_id
 	if ( get_impedence_type(Z_id) == 'R' & get_impedence_value(Z_id) == 0 ){
 		$(tmp).css({
-		    fill: "#ff0000"
+		fill: "#ff0000"
 		});
 
 	} else if ( get_impedence_type(Z_id) == 'R' & get_impedence_value(Z_id) > 0){
 		$(tmp).css({
-		    fill: "#aaaaaa"
+			fill: "#aaaaaa"
 		});
 	} else if ( get_impedence_type(Z_id) == 'C' ){
 		$(tmp).css({
-		    fill: "#0000ff"
+			fill: "#0000ff"
 		});
 	} else if ( get_impedence_type(Z_id) == 'open'){
 		$(tmp).css({
-		    fill: "#ffffff"
+			fill: "#ffffff"
 		});
 
 	}
@@ -98,12 +97,12 @@ function update_impedence_state(Z_id){
 }
 
 function openTab(TabName) {
-    var i;
-    var x = document.getElementsByClassName("tab");
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-    }
-    document.getElementById(TabName).style.display = "block";
+	var i;
+	var x = document.getElementsByClassName("tab");
+	for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";
+	}
+	document.getElementById(TabName).style.display = "block";
 }
 
 function openCircuitView(ViewName) {
@@ -112,8 +111,7 @@ function openCircuitView(ViewName) {
 	}else if (ViewName == 'Layout'){
 		turn_on_layout_view();
 	}
-		
-}        
+}
 function w3_open() {
   document.getElementById("mySidebar").style.display = "block";
 }
@@ -121,13 +119,12 @@ function w3_open() {
 function w3_close() {
   console.log('close')
   document.getElementById("mySidebar").style.display = "none";
-//  $('#mySidebar').hide()
 }
 function openICView(ViewName) {
 	var i;
 	var x = document.getElementsByClassName("ICView");
 	for (i = 0; i < x.length; i++) {
-	    x[i].style.display = "none";
+		x[i].style.display = "none";
 	}
 	document.getElementById(ViewName).style.display = "block";
 }
@@ -135,7 +132,6 @@ function openICView(ViewName) {
 let default_R = 1000
 let default_C = 0.1
 impedences = []
-
 
 $(document).ready(function() {
 	w3_close();
@@ -146,10 +142,6 @@ $(document).ready(function() {
 		}
 		impedences[impedence_name] = tmp
 	}
-	// console.log("docuemnt ready");
-	var inst_managerZ = new ManagerZ();  
-	var inst_managerUI = new ManagerUI();  
-	inst_managerZ.test();
 	turn_off_layout_view();
 	Nodes = {
 		0: {
@@ -195,10 +187,8 @@ $(document).ready(function() {
 		$(impedences_id[i]).click(
 			function(){
 				impedence_clicked(this.id);
-				//console.log(this.id);
 			}
 		);
-
 	}
 })
 
